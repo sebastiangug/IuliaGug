@@ -12,6 +12,8 @@ import { SkillComponent } from './components/skill/skill.component';
 import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component';
 import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.component';
 import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component
     SkillComponent,
     PortfolioItemComponent,
     NavDesktopComponent,
-    NavMobileComponent
+    NavMobileComponent,
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

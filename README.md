@@ -27,5 +27,6 @@ Modules:
         Pages:
             - manage-skills
             - manage-portfolio
+            - login
         Services:
             - admin.service
