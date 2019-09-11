@@ -31,3 +31,5 @@ Modules:
 
         Services:
             - admin.service
+
+    Shared.Module
