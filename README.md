@@ -14,6 +14,7 @@ Modules:
             - Skills
             - About
             - Contact
+            - Login
         Services:
             - public.service
             - auth.service
@@ -27,6 +28,6 @@ Modules:
         Pages:
             - manage-skills
             - manage-portfolio
-            - login
+
         Services:
             - admin.service
