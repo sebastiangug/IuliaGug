@@ -6,6 +6,8 @@ Modules:
         Components:
             - skill
             - portfolio
+            - nav-desktop
+            - nav-mobile
         Pages:
             - Home
             - Portfolio

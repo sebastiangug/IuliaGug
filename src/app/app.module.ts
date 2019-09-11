@@ -9,6 +9,9 @@ import { SkillsComponent } from './pages/skills/skills.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { SkillComponent } from './components/skill/skill.component';
+import { PortfolioItemComponent } from './components/portfolio-item/portfolio-item.component';
+import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.component';
+import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,13 @@ import { SkillComponent } from './components/skill/skill.component';
     SkillsComponent,
     ContactComponent,
     AboutComponent,
-    SkillComponent
+    SkillComponent,
+    PortfolioItemComponent,
+    NavDesktopComponent,
+    NavMobileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
