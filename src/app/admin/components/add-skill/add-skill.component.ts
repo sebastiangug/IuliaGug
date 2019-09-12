@@ -11,9 +11,9 @@ import {
   Validators,
   FormArray
 } from '@angular/forms';
-import { IProject } from '../../../../models/project.model';
+import { IPortfolio } from '../../../../models/portfolio.model';
 import { Observable } from 'rxjs';
-import { MatOptionSelectionChange, MatSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material';
 
 @Component({
   selector: 'app-add-skill',
@@ -24,9 +24,9 @@ import { MatOptionSelectionChange, MatSelectChange } from '@angular/material';
 export class AddSkillComponent implements OnInit {
   addSkillForm: FormGroup;
   tags: FormArray;
-  formProjects: FormArray;
+  formPortfolioItems: FormArray;
 
-  @Input() projects: Observable<IProject[]>;
+  @Input() portfolioItems: Observable<IPortfolio[]>;
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class AddSkillComponent implements OnInit {
       image: new FormControl('', Validators.required),
       firstUsed: new FormControl('', Validators.required),
       tags: this.formBuilder.array([this.createTag()]),
-      projects: this.formBuilder.array([this.createProject()]),
+      portfolioItems: this.formBuilder.array([this.createPortfolioItem()]),
       createdAt: new Date(Date.now())
     });
   }
@@ -46,24 +46,22 @@ export class AddSkillComponent implements OnInit {
     this.tags.push(this.createTag());
   }
 
-  addProject() {
-    this.formProjects = this.addSkillForm.get('projects') as FormArray;
-    this.formProjects.push(this.createProject());
+  addPortfolioItem() {
+    this.formPortfolioItems = this.addSkillForm.get(
+      'portfolioItems'
+    ) as FormArray;
+    this.formPortfolioItems.push(this.createPortfolioItem());
   }
 
   createTag() {
     return this.formBuilder.control('');
   }
 
-  createProject() {
+  createPortfolioItem() {
     return this.formBuilder.group({
       name: new FormControl('', Validators.required),
       link: new FormControl('', Validators.required)
     });
-  }
-
-  addSkill() {
-    console.log(this.addSkillForm.value);
   }
 
   deleteTag(i: number) {
@@ -71,19 +69,27 @@ export class AddSkillComponent implements OnInit {
     this.tags.removeAt(i);
   }
 
-  deleteProject(i: number) {
-    this.formProjects = this.addSkillForm.get('projects') as FormArray;
-    this.formProjects.removeAt(i);
+  deletePortfolioItem(i: number) {
+    this.formPortfolioItems = this.addSkillForm.get(
+      'portfolioItems'
+    ) as FormArray;
+    this.formPortfolioItems.removeAt(i);
   }
 
-  projectSelected(i: number, event: MatSelectChange) {
-    this.formProjects = this.addSkillForm.get('projects') as FormArray;
-    this.formProjects
+  portfolioItemSelected(i: number, event: MatSelectChange) {
+    this.formPortfolioItems = this.addSkillForm.get(
+      'portfolioItems'
+    ) as FormArray;
+    this.formPortfolioItems
       .at(i)
       .setValue({ name: event.value.name, link: event.value.link });
   }
 
   get activeFormProjects() {
-    return this.addSkillForm.get('projects') as FormArray;
+    return this.addSkillForm.get('portfolioItems') as FormArray;
+  }
+
+  submit() {
+    console.log(this.addSkillForm.value);
   }
 }

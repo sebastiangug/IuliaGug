@@ -1,4 +1,4 @@
-export interface ISkillProject {
+export interface ISkillPortfolio {
   name: string;
   link: string;
 }
@@ -8,7 +8,7 @@ export interface ISkill {
   description: string;
   firstUsed: Date;
   image: string;
-  projects: ISkillProject[];
+  portfolioItems: ISkillPortfolio[];
   tags: string[];
   id: string;
   createdAt: Date;

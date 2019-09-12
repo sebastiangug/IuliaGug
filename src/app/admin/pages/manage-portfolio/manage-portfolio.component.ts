@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-manage-portfolio',
   templateUrl: './manage-portfolio.component.html',
-  styleUrls: ['./manage-portfolio.component.scss']
+  styleUrls: ['./manage-portfolio.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManagePortfolioComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

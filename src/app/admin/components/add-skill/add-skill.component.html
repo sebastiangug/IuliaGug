@@ -1,4 +1,4 @@
-<form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start" [formGroup]="addSkillForm" (ngSubmit)="addSkill()">
+<form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start" [formGroup]="addSkillForm" (ngSubmit)="submit()">
     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
         <mat-form-field>
             <input formControlName="name" placeholder="name" matInput type="text" />
@@ -20,23 +20,23 @@
     </mat-form-field>
 
 
-    <button mat-raised-button (click)="addProject()" color="accent"> + Add Project </button>
+    <button mat-raised-button (click)="addPortfolioItem()" color="accent"> + Add Portfolio Item </button>
 
-    <div fxLayout="column" fxLayoutGap="15px" formArrayName="projects"
+    <div fxLayout="column" fxLayoutGap="15px" formArrayName="portfolioItems"
         *ngFor="let project of activeFormProjects.controls; let i = index" fxFill>
 
         <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center" fxLayoutGap="10px">
 
             <mat-form-field fxFlex="80">
-                <mat-select (selectionChange)="projectSelected(i, $event)">
-                    <mat-option *ngFor="let option of projects | async" [value]="option">
+                <mat-select (selectionChange)="portfolioItemSelected(i, $event)">
+                    <mat-option *ngFor="let option of portfolioItems | async" [value]="option">
                         {{ option.name }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <div fxFlex="20">
-                <button mat-raised-button color="warn" (click)="deleteProject(i)">
+                <button mat-raised-button color="warn" (click)="deletePortfolioItem(i)">
                     <img src="../../../../assets/icons/garbage.svg" height="20px">
                 </button>
             </div>
