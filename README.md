@@ -25,6 +25,7 @@ Modules:
             - edit-portfolio
             - add-skill
             - add-portfolio
+            - nav-admin
         Pages:
             - manage-skills
             - manage-portfolio

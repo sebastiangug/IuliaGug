@@ -8,6 +8,7 @@ import { AddSkillComponent } from './components/add-skill/add-skill.component';
 import { AddPortfolioComponent } from './components/add-portfolio/add-portfolio.component';
 import { RouterModule } from '@angular/router';
 import { AdminGuard } from '../guards/admin.guard';
+import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminGuard } from '../guards/admin.guard';
     EditSkillComponent,
     EditPortfolioComponent,
     AddSkillComponent,
-    AddPortfolioComponent
+    AddPortfolioComponent,
+    NavAdminComponent
   ],
   imports: [
     CommonModule,
