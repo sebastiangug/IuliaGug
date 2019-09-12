@@ -37,7 +37,7 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.success.subscribe((success: boolean) => {
+    this.subscription = this.success.subscribe((success: boolean) => {
       if (success) {
         this.buildForm();
       }

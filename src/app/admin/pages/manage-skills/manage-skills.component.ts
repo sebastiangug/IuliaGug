@@ -7,6 +7,7 @@ import { ISkill } from '../../../../models/skill.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NotifyService } from '../../services/notify.service';
+import { IPortfolio } from '../../../../models/portfolio.model';
 
 @Component({
   selector: 'app-manage-skills',
@@ -17,6 +18,8 @@ import { NotifyService } from '../../services/notify.service';
 export class ManageSkillsComponent {
   skillsCollection: AngularFirestoreCollection<ISkill>;
   skillDocs: Observable<ISkill[]>;
+  portfolioDocs: Observable<IPortfolio[]>;
+  portfolioCollection: AngularFirestoreCollection<IPortfolio>;
   success: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private afs: AngularFirestore, private notify: NotifyService) {
@@ -30,6 +33,8 @@ export class ManageSkillsComponent {
         });
       })
     );
+    this.portfolioCollection = this.afs.collection('portfolio');
+    this.portfolioDocs = this.portfolioCollection.valueChanges();
   }
 
   saveSkill(skill: ISkill) {

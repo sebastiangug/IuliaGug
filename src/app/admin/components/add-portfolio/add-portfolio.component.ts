@@ -73,4 +73,8 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  trackByFn(index: any, item: any) {
+    return index;
+  }
 }

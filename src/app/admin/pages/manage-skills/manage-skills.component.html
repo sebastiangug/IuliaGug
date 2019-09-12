@@ -1,6 +1,8 @@
 <app-nav-admin></app-nav-admin>
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
     <p class="title-1"> Add Skill</p>
-    <app-add-skill (submitSkill)="saveSkill($event)" [success]="success"></app-add-skill>
+    <app-add-skill (submitSkill)="saveSkill($event)" [success]="success" [portfolioItems]="portfolioDocs">
+    </app-add-skill>
 </div>
-<p>manage-skills works!</p>
+
+<app-edit-skill *ngFor="let skill of skillDocs | async" [skill]="skill"></app-edit-skill>
