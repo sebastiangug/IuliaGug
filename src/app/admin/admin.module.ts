@@ -9,6 +9,7 @@ import { AddPortfolioComponent } from './components/add-portfolio/add-portfolio.
 import { RouterModule } from '@angular/router';
 import { AdminGuard } from '../guards/admin.guard';
 import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: 'manage-skills',
