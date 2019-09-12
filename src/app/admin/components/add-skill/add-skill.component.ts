@@ -2,7 +2,10 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  Input
+  Input,
+  Output,
+  EventEmitter,
+  OnDestroy
 } from '@angular/core';
 import {
   FormBuilder,
@@ -12,8 +15,9 @@ import {
   FormArray
 } from '@angular/forms';
 import { IPortfolio } from '../../../../models/portfolio.model';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MatSelectChange } from '@angular/material';
+import { ISkill } from '../../../../models/skill.model';
 
 @Component({
   selector: 'app-add-skill',
@@ -21,15 +25,27 @@ import { MatSelectChange } from '@angular/material';
   styleUrls: ['./add-skill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddSkillComponent implements OnInit {
+export class AddSkillComponent implements OnInit, OnDestroy {
   addSkillForm: FormGroup;
   tags: FormArray;
   formPortfolioItems: FormArray;
+  subscription: Subscription;
 
   @Input() portfolioItems: Observable<IPortfolio[]>;
+  @Input() success: Observable<boolean>;
+  @Output() submitSkill: EventEmitter<ISkill> = new EventEmitter();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.success.subscribe((success: boolean) => {
+      if (success) {
+        this.buildForm();
+      }
+    });
+    this.buildForm();
+  }
+
+  buildForm() {
     this.addSkillForm = this.formBuilder.group({
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
@@ -90,6 +106,14 @@ export class AddSkillComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.addSkillForm.value);
+    return this.submitSkill.emit(this.addSkillForm.value);
+  }
+
+  trackByFn(index: any, item: any) {
+    return index;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

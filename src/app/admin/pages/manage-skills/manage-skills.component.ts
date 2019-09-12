@@ -5,7 +5,7 @@ import {
 } from '@angular/fire/firestore';
 import { ISkill } from '../../../../models/skill.model';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -14,9 +14,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./manage-skills.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ManageSkillsComponent implements OnInit {
+export class ManageSkillsComponent {
   skillsCollection: AngularFirestoreCollection<ISkill>;
   skillDocs: Observable<ISkill[]>;
+
+  success: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private afs: AngularFirestore, private auth: AngularFireAuth) {
     this.skillsCollection = this.afs.collection('skills');
@@ -30,5 +32,13 @@ export class ManageSkillsComponent implements OnInit {
       })
     );
   }
-  ngOnInit() {}
+
+  saveSkill(skill: ISkill) {
+    this.skillsCollection.add(skill).then(data => {
+      console.log(data.id);
+      this.success.next(true);
+      this.success.next(false);
+    });
+    console.log(skill);
+  }
 }

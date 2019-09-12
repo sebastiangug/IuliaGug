@@ -1,4 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import {
   FormGroup,
   FormArray,
@@ -6,6 +12,7 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
+import { IPortfolio } from '../../../../models/portfolio.model';
 
 @Component({
   selector: 'app-add-portfolio',
@@ -17,6 +24,7 @@ export class AddPortfolioComponent implements OnInit {
   addPortfolioForm: FormGroup;
   tags: FormArray;
 
+  @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -45,6 +53,6 @@ export class AddPortfolioComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.addPortfolioForm.value);
+    this.submitPortfolio.emit(this.addPortfolioForm.value);
   }
 }

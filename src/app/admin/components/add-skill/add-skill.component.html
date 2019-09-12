@@ -45,7 +45,7 @@
 
     <button mat-raised-button (click)="addTag()" color="accent"> + Add Tag </button>
     <div fxLayout="column" fxLayoutGap="15px" formArrayName="tags"
-        *ngFor="let tag of addSkillForm.get('tags').value; let i = index" fxFill>
+        *ngFor="let tag of addSkillForm.get('tags').value; let i = index; trackBy: trackByFn" fxFill>
 
         <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center" fxLayoutGap="10px">
             <mat-form-field fxFlex="80">
