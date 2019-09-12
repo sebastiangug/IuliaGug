@@ -1,6 +1,6 @@
 <app-nav-admin></app-nav-admin>
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
     <p class="title-1"> Add Portfolio</p>
-    <app-add-portfolio></app-add-portfolio>
+    <app-add-portfolio (submitPortfolio)="savePortfolio($event)" [success]="success"></app-add-portfolio>
 </div>
 <p>manage-portfolio works!</p>

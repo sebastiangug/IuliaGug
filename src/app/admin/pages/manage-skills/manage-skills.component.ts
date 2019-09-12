@@ -1,12 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
   AngularFirestoreCollection,
   AngularFirestore
 } from '@angular/fire/firestore';
 import { ISkill } from '../../../../models/skill.model';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { NotifyService } from '../../services/notify.service';
 
 @Component({
   selector: 'app-manage-skills',
@@ -17,10 +17,9 @@ import { map } from 'rxjs/operators';
 export class ManageSkillsComponent {
   skillsCollection: AngularFirestoreCollection<ISkill>;
   skillDocs: Observable<ISkill[]>;
-
   success: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  constructor(private afs: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private afs: AngularFirestore, private notify: NotifyService) {
     this.skillsCollection = this.afs.collection('skills');
     this.skillDocs = this.skillsCollection.snapshotChanges().pipe(
       map(actions => {
@@ -35,10 +34,9 @@ export class ManageSkillsComponent {
 
   saveSkill(skill: ISkill) {
     this.skillsCollection.add(skill).then(data => {
-      console.log(data.id);
+      this.notify.success('❤️ ' + skill.name + ' skill added!');
       this.success.next(true);
       this.success.next(false);
     });
-    console.log(skill);
   }
 }

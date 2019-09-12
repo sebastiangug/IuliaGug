@@ -3,7 +3,9 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   EventEmitter,
-  Output
+  Output,
+  Input,
+  OnDestroy
 } from '@angular/core';
 import {
   FormGroup,
@@ -13,6 +15,7 @@ import {
   FormControl
 } from '@angular/forms';
 import { IPortfolio } from '../../../../models/portfolio.model';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-portfolio',
@@ -20,14 +23,25 @@ import { IPortfolio } from '../../../../models/portfolio.model';
   styleUrls: ['./add-portfolio.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddPortfolioComponent implements OnInit {
+export class AddPortfolioComponent implements OnInit, OnDestroy {
   addPortfolioForm: FormGroup;
   tags: FormArray;
+  subscription: Subscription;
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
+  @Input() success: Observable<boolean>;
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.subscription = this.success.subscribe((success: boolean) => {
+      if (success) {
+        this.buildForm();
+      }
+    });
+    this.buildForm();
+  }
+
+  buildForm() {
     this.addPortfolioForm = this.formBuilder.group({
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
@@ -54,5 +68,9 @@ export class AddPortfolioComponent implements OnInit {
 
   submit() {
     this.submitPortfolio.emit(this.addPortfolioForm.value);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

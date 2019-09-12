@@ -41,3 +41,27 @@ body {
   font-size: 2.2rem;
   font-weight: 500;
 }
+
+snack-bar-container {
+  &.success {
+    color: white;
+    background: linear-gradient(-120deg, #67d409, #09d46d);
+  }
+
+  &.error {
+    color: white;
+    background: linear-gradient(-120deg, #fb391a, #f41869);
+  }
+
+  &.warning {
+    color: white;
+    background: linear-gradient(-120deg, #dd9518, #ec6f09);
+  }
+
+  .mat-simple-snackbar {
+    width: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px 1px slategray;
+  }
+}

@@ -32,5 +32,6 @@ Modules:
 
         Services:
             - admin.service
+            - notify.service
 
     Shared.Module
