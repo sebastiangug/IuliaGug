@@ -41,7 +41,9 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.fireAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
+    return this.updateUserData(credential.user).then(() => {
+      return this.router.navigate(['/admin']);
+    });
   }
 
   async signOut() {
