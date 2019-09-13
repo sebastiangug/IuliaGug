@@ -39,4 +39,24 @@ export class ManagePortfolioComponent {
       this.success.next(false);
     });
   }
+
+  updatePortfolio(id: string, portfolio: IPortfolio) {
+    this.portfolioCollection
+      .doc(id)
+      .update(portfolio)
+      .then(data => {
+        this.notify.success('😍 That portfolio just got better');
+      });
+  }
+
+  deletePortfolio(id: string, confirm: boolean) {
+    if (confirm) {
+      this.portfolioCollection
+        .doc(id)
+        .delete()
+        .then(event => {
+          this.notify.success('💩 Flushed that portfolio away 🚽');
+        });
+    }
+  }
 }

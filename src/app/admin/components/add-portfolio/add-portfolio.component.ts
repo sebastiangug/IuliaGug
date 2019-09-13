@@ -30,6 +30,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   @Input() success: Observable<boolean>;
+  @Input() portfolio: IPortfolio;
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -42,23 +43,41 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   }
 
   buildForm() {
-    this.addPortfolioForm = this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      link: new FormControl('', Validators.required),
-      image: new FormControl('', Validators.required),
-      tags: this.formBuilder.array([this.createTag()]),
-      createdAt: new FormControl(new Date(Date.now()))
-    });
+    if (this.portfolio) {
+      this.addPortfolioForm = this.formBuilder.group({
+        name: new FormControl(this.portfolio.name, Validators.required),
+        description: new FormControl(
+          this.portfolio.description,
+          Validators.required
+        ),
+        link: new FormControl(this.portfolio.link, Validators.required),
+        image: new FormControl(this.portfolio.image, Validators.required),
+        tags: this.formBuilder.array([]),
+        createdAt: this.portfolio.createdAt
+      });
+
+      this.portfolio.tags.forEach((el: string) => {
+        this.addTag(el);
+      });
+    } else {
+      this.addPortfolioForm = this.formBuilder.group({
+        name: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+        link: new FormControl('', Validators.required),
+        image: new FormControl('', Validators.required),
+        tags: this.formBuilder.array([this.createTag()]),
+        createdAt: new FormControl(new Date(Date.now()))
+      });
+    }
   }
 
-  addTag() {
+  addTag(tag?: string) {
     this.tags = this.addPortfolioForm.get('tags') as FormArray;
-    this.tags.push(this.createTag());
+    this.tags.push(this.createTag(tag));
   }
 
-  createTag() {
-    return this.formBuilder.control('');
+  createTag(tag?: string) {
+    return this.formBuilder.control(tag ? tag : '');
   }
 
   deleteTag(i: number) {

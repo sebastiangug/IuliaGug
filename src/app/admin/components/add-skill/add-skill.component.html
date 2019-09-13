@@ -23,12 +23,13 @@
     <button type="button" mat-raised-button (click)="addPortfolioItem()" color="accent"> + Add Portfolio Item </button>
 
     <div fxLayout="column" fxLayoutGap="15px" formArrayName="portfolioItems"
-        *ngFor="let project of activeFormProjects.controls; let i = index" fxFill>
+        *ngFor="let portfolio of activeFormPortfolio.controls; let i = index" fxFill>
 
         <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center" fxLayoutGap="10px">
 
             <mat-form-field fxFlex="80">
-                <mat-select (selectionChange)="portfolioItemSelected(i, $event)">
+                <mat-select (selectionChange)="portfolioItemSelected(i, $event)" [placeholder]="portfolio.value.name"
+                    [value]="portfolio.value">
                     <mat-option *ngFor="let option of portfolioDocs | async" [value]="option">
                         {{ option.name }}
                     </mat-option>

@@ -74,11 +74,11 @@ export class AddSkillComponent implements OnInit, OnDestroy {
       });
 
       this.skill.tags.forEach((el: string) => {
-        this.createTag(el);
+        this.addTag(el);
       });
 
       this.skill.portfolioItems.forEach((el: ISkillPortfolio) => {
-        this.createPortfolioItem(el);
+        this.addPortfolioItem(el);
       });
     } else {
       this.addSkillForm = this.formBuilder.group({
@@ -93,16 +93,16 @@ export class AddSkillComponent implements OnInit, OnDestroy {
     }
   }
 
-  addTag() {
+  addTag(tag?: string) {
     this.tags = this.addSkillForm.get('tags') as FormArray;
-    this.tags.push(this.createTag());
+    this.tags.push(this.createTag(tag));
   }
 
-  addPortfolioItem() {
+  addPortfolioItem(item?: ISkillPortfolio) {
     this.formPortfolioItems = this.addSkillForm.get(
       'portfolioItems'
     ) as FormArray;
-    this.formPortfolioItems.push(this.createPortfolioItem());
+    this.formPortfolioItems.push(this.createPortfolioItem(item));
   }
 
   createTag(tag?: string) {
@@ -137,7 +137,7 @@ export class AddSkillComponent implements OnInit, OnDestroy {
       .setValue({ name: event.value.name, link: event.value.link });
   }
 
-  get activeFormProjects() {
+  get activeFormPortfolio() {
     return this.addSkillForm.get('portfolioItems') as FormArray;
   }
 
