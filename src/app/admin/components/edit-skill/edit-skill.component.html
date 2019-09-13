@@ -9,6 +9,10 @@
         {{ !skill.firstUsed ? 'not available' : skill.firstUsed.toDate() | date:'MM:dd:yyyy' }}
     </mat-card-subtitle>
     <p> {{ skill.description }}</p>
+    <strong> Tags: </strong>
+    <span *ngFor="let tag of skill.tags"> {{ tag }}</span>
+    <strong> Portfolio Items: </strong>
+    <span *ngFor="let portfolio of skill.portfolioItems"> {{ portfolio.name }}</span>
 </mat-card>
 
 <app-add-skill *ngIf="editing" (submitSkill)="updateSkill($event)" [success]="success" [skill]="skill"></app-add-skill>

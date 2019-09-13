@@ -20,7 +20,7 @@
     </mat-form-field>
 
 
-    <button mat-raised-button (click)="addPortfolioItem()" color="accent"> + Add Portfolio Item </button>
+    <button type="button" mat-raised-button (click)="addPortfolioItem()" color="accent"> + Add Portfolio Item </button>
 
     <div fxLayout="column" fxLayoutGap="15px" formArrayName="portfolioItems"
         *ngFor="let project of activeFormProjects.controls; let i = index" fxFill>
@@ -29,21 +29,21 @@
 
             <mat-form-field fxFlex="80">
                 <mat-select (selectionChange)="portfolioItemSelected(i, $event)">
-                    <mat-option *ngFor="let option of portfolioItems | async" [value]="option">
+                    <mat-option *ngFor="let option of portfolioDocs | async" [value]="option">
                         {{ option.name }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <div fxFlex="20">
-                <button mat-raised-button color="warn" (click)="deletePortfolioItem(i)">
+                <button type="button" mat-raised-button color="warn" (click)="deletePortfolioItem(i)">
                     <img src="../../../../assets/icons/garbage.svg" height="20px">
                 </button>
             </div>
         </div>
     </div>
 
-    <button mat-raised-button (click)="addTag()" color="accent"> + Add Tag </button>
+    <button type="button" mat-raised-button (click)="addTag()" color="accent"> + Add Tag </button>
     <div fxLayout="column" fxLayoutGap="15px" formArrayName="tags"
         *ngFor="let tag of addSkillForm.get('tags').value; let i = index; trackBy: trackByFn" fxFill>
 
@@ -52,7 +52,7 @@
                 <input matInput [formControlName]='i' placeholder="tag" />
             </mat-form-field>
             <div fxFlex="20">
-                <button mat-raised-button color="warn" (click)="deleteTag(i)">
+                <button type="button" mat-raised-button color="warn" (click)="deleteTag(i)">
                     <img src="../../../../assets/icons/garbage.svg" height="20px">
                 </button>
             </div>

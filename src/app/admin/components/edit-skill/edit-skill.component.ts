@@ -2,10 +2,13 @@ import {
   Component,
   OnInit,
   Input,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { ISkill } from '../../../../models/skill.model';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import { IPortfolio } from '../../../../models/portfolio.model';
 
 @Component({
   selector: 'app-edit-skill',
@@ -13,19 +16,21 @@ import { of } from 'rxjs';
   styleUrls: ['./edit-skill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditSkillComponent implements OnInit {
+export class EditSkillComponent {
   editing = false;
   success = of(false);
   @Input() skill: ISkill;
+  @Output() delete: EventEmitter<boolean> = new EventEmitter();
+  @Output() update: EventEmitter<ISkill> = new EventEmitter();
   constructor() {}
 
-  ngOnInit() {}
-
   updateSkill(skill: ISkill) {
-    console.log(skill);
+    this.update.emit(skill);
   }
 
-  deleteSkill(id: string) {}
+  deleteSkill(id: string) {
+    this.delete.emit(true);
+  }
 
   toggleEdit() {
     this.editing = !this.editing;

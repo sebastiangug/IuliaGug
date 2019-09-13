@@ -44,4 +44,24 @@ export class ManageSkillsComponent {
       this.success.next(false);
     });
   }
+
+  updateSkill(id: string, skill: ISkill) {
+    this.skillsCollection
+      .doc(id)
+      .update(skill)
+      .then(data => {
+        this.notify.success('😍 That skill just got better');
+      });
+  }
+
+  deleteSkill(id: string, confirm: boolean) {
+    if (confirm) {
+      this.skillsCollection
+        .doc(id)
+        .delete()
+        .then(event => {
+          this.notify.success('💩 Flushed that skill away 🚽');
+        });
+    }
+  }
 }

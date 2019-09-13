@@ -18,6 +18,10 @@ import { IPortfolio } from '../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { MatSelectChange } from '@angular/material';
 import { ISkill, ISkillPortfolio } from '../../../../models/skill.model';
+import {
+  AngularFirestoreCollection,
+  AngularFirestore
+} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-add-skill',
@@ -31,11 +35,16 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   formPortfolioItems: FormArray;
   subscription: Subscription;
 
+  portfolioDocs: Observable<IPortfolio[]>;
+  portfolioCollection: AngularFirestoreCollection<IPortfolio>;
+
   @Input() skill: ISkill;
-  @Input() portfolioItems: Observable<IPortfolio[]>;
   @Input() success: Observable<boolean>;
   @Output() submitSkill: EventEmitter<ISkill> = new EventEmitter();
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private afs: AngularFirestore) {
+    this.portfolioCollection = this.afs.collection('portfolio');
+    this.portfolioDocs = this.portfolioCollection.valueChanges();
+  }
 
   ngOnInit() {
     this.subscription = this.success.subscribe((success: boolean) => {
