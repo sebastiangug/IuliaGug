@@ -4,5 +4,6 @@
     <app-add-skill (submitSkill)="saveSkill($event)" [success]="success" [portfolioItems]="portfolioDocs">
     </app-add-skill>
 </div>
-
-<app-edit-skill *ngFor="let skill of skillDocs | async" [skill]="skill"></app-edit-skill>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" style="margin-top: 20px;">
+    <app-edit-skill *ngFor="let skill of skillDocs | async" [skill]="skill"></app-edit-skill>
+</div>

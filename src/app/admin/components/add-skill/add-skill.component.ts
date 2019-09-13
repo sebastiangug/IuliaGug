@@ -17,7 +17,7 @@ import {
 import { IPortfolio } from '../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { MatSelectChange } from '@angular/material';
-import { ISkill } from '../../../../models/skill.model';
+import { ISkill, ISkillPortfolio } from '../../../../models/skill.model';
 
 @Component({
   selector: 'app-add-skill',
@@ -31,6 +31,7 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   formPortfolioItems: FormArray;
   subscription: Subscription;
 
+  @Input() skill: ISkill;
   @Input() portfolioItems: Observable<IPortfolio[]>;
   @Input() success: Observable<boolean>;
   @Output() submitSkill: EventEmitter<ISkill> = new EventEmitter();
@@ -46,15 +47,41 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   }
 
   buildForm() {
-    this.addSkillForm = this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      image: new FormControl('', Validators.required),
-      firstUsed: new FormControl('', Validators.required),
-      tags: this.formBuilder.array([this.createTag()]),
-      portfolioItems: this.formBuilder.array([this.createPortfolioItem()]),
-      createdAt: new Date(Date.now())
-    });
+    if (this.skill) {
+      this.addSkillForm = this.formBuilder.group({
+        name: new FormControl(this.skill.name, Validators.required),
+        description: new FormControl(
+          this.skill.description,
+          Validators.required
+        ),
+        image: new FormControl(this.skill.image, Validators.required),
+        firstUsed: new FormControl(
+          this.skill.firstUsed ? this.skill.firstUsed.toDate() : new Date(),
+          Validators.required
+        ),
+        tags: this.formBuilder.array([]),
+        portfolioItems: this.formBuilder.array([]),
+        createdAt: this.skill.createdAt
+      });
+
+      this.skill.tags.forEach((el: string) => {
+        this.createTag(el);
+      });
+
+      this.skill.portfolioItems.forEach((el: ISkillPortfolio) => {
+        this.createPortfolioItem(el);
+      });
+    } else {
+      this.addSkillForm = this.formBuilder.group({
+        name: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+        image: new FormControl('', Validators.required),
+        firstUsed: new FormControl('', Validators.required),
+        tags: this.formBuilder.array([this.createTag()]),
+        portfolioItems: this.formBuilder.array([this.createPortfolioItem()]),
+        createdAt: new Date(Date.now())
+      });
+    }
   }
 
   addTag() {
@@ -69,14 +96,14 @@ export class AddSkillComponent implements OnInit, OnDestroy {
     this.formPortfolioItems.push(this.createPortfolioItem());
   }
 
-  createTag() {
-    return this.formBuilder.control('');
+  createTag(tag?: string) {
+    return this.formBuilder.control(tag ? tag : '');
   }
 
-  createPortfolioItem() {
+  createPortfolioItem(item?: ISkillPortfolio) {
     return this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      link: new FormControl('', Validators.required)
+      name: new FormControl(item ? item.name : '', Validators.required),
+      link: new FormControl(item ? item.link : '', Validators.required)
     });
   }
 

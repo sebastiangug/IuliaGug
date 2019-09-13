@@ -1,3 +1,5 @@
+import { firestore } from 'firebase';
+
 export interface ISkillPortfolio {
   name: string;
   link: string;
@@ -6,7 +8,7 @@ export interface ISkillPortfolio {
 export interface ISkill {
   name: string;
   description: string;
-  firstUsed: Date;
+  firstUsed: firestore.Timestamp;
   image: string;
   portfolioItems: ISkillPortfolio[];
   tags: string[];

@@ -5,6 +5,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { ISkill } from '../../../../models/skill.model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-edit-skill',
@@ -13,8 +14,20 @@ import { ISkill } from '../../../../models/skill.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditSkillComponent implements OnInit {
+  editing = false;
+  success = of(false);
   @Input() skill: ISkill;
   constructor() {}
 
   ngOnInit() {}
+
+  updateSkill(skill: ISkill) {
+    console.log(skill);
+  }
+
+  deleteSkill(id: string) {}
+
+  toggleEdit() {
+    this.editing = !this.editing;
+  }
 }
