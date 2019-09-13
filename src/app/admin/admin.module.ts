@@ -28,14 +28,14 @@ import { SharedModule } from '../shared/shared.module';
       {
         path: 'manage-skills',
         component: ManageSkillsComponent,
-        pathMatch: 'prefix',
-        canActivate: [AdminGuard]
+        pathMatch: 'prefix'
+        // canActivate: [AdminGuard]
       },
       {
         path: 'manage-portfolio',
         component: ManagePortfolioComponent,
-        pathMatch: 'prefix',
-        canActivate: [AdminGuard]
+        pathMatch: 'prefix'
+        // canActivate: [AdminGuard]
       },
       { path: '', redirectTo: 'manage-skills', pathMatch: 'prefix' }
     ])

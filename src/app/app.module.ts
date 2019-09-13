@@ -19,6 +19,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { WipOverlayComponent } from './components/wip-overlay/wip-overlay.component';
+import { DevComponent } from './components/dev/dev.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { SharedModule } from './shared/shared.module';
     NavDesktopComponent,
     NavMobileComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    WipOverlayComponent,
+    DevComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ Modules:
             - portfolio
             - nav-desktop
             - nav-mobile
+            - wip-overlay
+            - dev
         Pages:
             - Home
             - Portfolio
@@ -18,6 +20,8 @@ Modules:
         Services:
             - public.service
             - auth.service
+        Guards:
+            - auth.guard
 
     Admin.Module
         Components:
