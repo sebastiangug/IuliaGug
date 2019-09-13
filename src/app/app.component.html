@@ -1,9 +1,9 @@
-<app-nav-desktop *ngIf="(auth.user | async) && (auth.user | async).uid === 's4Zlt4EYThej87YpGbM9Cqt8UXc2'">
+<app-nav-desktop *ngIf="(auth.user | async)">
 </app-nav-desktop>
 <app-wip-overlay *ngIf="showOverlay | async"></app-wip-overlay>
 <router-outlet *ngIf="!(showOverlay | async)"></router-outlet>
 
-<div *ngIf="(auth.user | async) && (auth.user | async).uid === 's4Zlt4EYThej87YpGbM9Cqt8UXc2'">
+<div *ngIf="(auth.user | async)">
     <button routerLink="admin" mat-raised-button color="accent"> Admin Panel </button>
     <app-dev></app-dev>
 </div>
