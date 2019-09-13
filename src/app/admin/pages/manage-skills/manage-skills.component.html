@@ -5,6 +5,7 @@
     </app-add-skill>
 </div>
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" style="margin-top: 20px;">
+    <p class="title-1"> Manage Existing Skills</p>
     <app-edit-skill *ngFor="let skill of skillDocs | async" [skill]="skill" (update)="updateSkill(skill.id, $event)"
         (delete)="deleteSkill(skill.id, $event)"></app-edit-skill>
 </div>
