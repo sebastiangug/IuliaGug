@@ -47,8 +47,9 @@ export class AuthService {
   }
 
   async signOut() {
-    await this.fireAuth.auth.signOut();
-    return this.router.navigate(['/']);
+    return this.fireAuth.auth.signOut().then(() => {
+      return this.router.navigate(['/']);
+    });
   }
 
   private updateUserData({ uid, email, displayName, photoURL }: IUser) {

@@ -10,7 +10,7 @@ import {
 } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { AuthService, IUser } from '../services/auth.service';
-import { switchMap, catchError } from 'rxjs/operators';
+import { switchMap, catchError, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,14 +28,9 @@ export class AdminGuard implements CanActivate, CanLoad {
     | UrlTree {
     return this.auth.user.pipe(
       switchMap((user: IUser) => {
-        console.log(user);
-        if (!user) {
-          return of(false);
-        } else if (user && user.uid === 's4Zlt4EYThej87YpGbM9Cqt8UXc2') {
-          console.log('UID MATCH');
+        if (user && user.uid === 's4Zlt4EYThej87YpGbM9Cqt8UXc2') {
           return of(true);
         } else {
-          console.log('UID MISMATCH');
           return of(false);
         }
       })
@@ -46,8 +41,13 @@ export class AdminGuard implements CanActivate, CanLoad {
     segments: UrlSegment[]
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.auth.user.pipe(
+      take(1),
       switchMap((user: IUser) => {
-        return of(true);
+        if (user && user.uid === 's4Zlt4EYThej87YpGbM9Cqt8UXc2') {
+          return of(true);
+        } else {
+          return of(false);
+        }
       })
     );
   }
