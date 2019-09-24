@@ -1,0 +1,22 @@
+.nav-container {
+  width: 35vw;
+  min-width: 400px;
+  background-image: url('../../../assets/textures/diagonal-noise.png'),
+    linear-gradient(45deg, #e75f23, #ff003c);
+  background-repeat: repeat, no-repeat;
+  min-height: 100vh;
+}
+
+.test-button {
+  background: red !important;
+  &:hover {
+  }
+}
+
+.menu-button {
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0.3rem;
+}

@@ -14,10 +14,10 @@ import {
   Validators,
   FormArray
 } from '@angular/forms';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { MatSelectChange } from '@angular/material';
-import { ISkill, ISkillPortfolio } from '../../../../models/skill.model';
+import { ISkill, ISkillPortfolio } from '../../../../../models/skill.model';
 import {
   AngularFirestoreCollection,
   AngularFirestore

@@ -1,14 +1,12 @@
 import {
   Component,
-  OnInit,
   Input,
   ChangeDetectionStrategy,
   Output,
   EventEmitter
 } from '@angular/core';
-import { ISkill } from '../../../../models/skill.model';
-import { of, Observable } from 'rxjs';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { ISkill } from '../../../../../models/skill.model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-edit-skill',

@@ -42,6 +42,10 @@ body {
   font-weight: 500;
 }
 
+main {
+  padding: 2rem;
+}
+
 snack-bar-container {
   &.success {
     color: white;

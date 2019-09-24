@@ -14,7 +14,7 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({

@@ -39,3 +39,9 @@ Modules:
             - notify.service
 
     Shared.Module
+        Components:
+            - icon
+            - icon-definitions
+        Modules:
+            - Angular Material
+            - Angular Forms

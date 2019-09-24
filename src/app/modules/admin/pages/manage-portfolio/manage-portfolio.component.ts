@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { IPortfolio } from '../../../../../models/portfolio.model';
 import {
   AngularFirestoreCollection,
   AngularFirestore

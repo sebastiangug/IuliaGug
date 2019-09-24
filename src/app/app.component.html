@@ -1,9 +1,14 @@
-<app-nav-desktop *ngIf="(auth.user | async)">
-</app-nav-desktop>
-<app-wip-overlay *ngIf="showOverlay | async"></app-wip-overlay>
-<router-outlet *ngIf="!(showOverlay | async)"></router-outlet>
-
-<div *ngIf="(auth.user | async)">
-    <button routerLink="admin" mat-raised-button color="accent"> Admin Panel </button>
-    <app-dev></app-dev>
+<div fxLayout="row" fxLayoutAlign="start">
+  <app-nav-desktop> </app-nav-desktop>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
+<!-- <div *ngIf="auth.user | async">
+  <button routerLink="admin" mat-raised-button color="accent">
+    Admin Panel
+  </button>
+  <app-dev></app-dev>
+</div> -->
+
+<icon-definitions [hidden]="true"></icon-definitions>

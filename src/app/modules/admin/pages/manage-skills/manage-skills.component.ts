@@ -3,11 +3,11 @@ import {
   AngularFirestoreCollection,
   AngularFirestore
 } from '@angular/fire/firestore';
-import { ISkill } from '../../../../models/skill.model';
+import { ISkill } from '../../../../../models/skill.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NotifyService } from '../../services/notify.service';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { IPortfolio } from '../../../../../models/portfolio.model';
 
 @Component({
   selector: 'app-manage-skills',

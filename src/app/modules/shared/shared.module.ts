@@ -31,6 +31,8 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IconComponent } from './components/icon/icon.component';
+import { IconDefinitionsComponent } from './components/icon-definitions/icon-definitions.component';
 
 @NgModule({
   exports: [
@@ -64,7 +66,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  ]
+    MatNativeDateModule,
+    IconComponent,
+    IconDefinitionsComponent
+  ],
+  declarations: [IconComponent, IconDefinitionsComponent]
 })
 export class SharedModule {}

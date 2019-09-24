@@ -7,7 +7,7 @@ import {
   Output
 } from '@angular/core';
 import { of } from 'rxjs';
-import { IPortfolio } from '../../../../models/portfolio.model';
+import { IPortfolio } from '../../../../../models/portfolio.model';
 
 @Component({
   selector: 'app-edit-portfolio',

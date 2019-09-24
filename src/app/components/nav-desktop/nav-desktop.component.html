@@ -1,8 +1,66 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" style="padding: 1rem;">
-    <button routerLink="" mat-raised-button> home</button>
-    <button routerLink="about" mat-raised-button> about </button>
-    <button routerLink="skills" mat-raised-button> skills </button>
-    <button routerLink="portfolio" mat-raised-button> portfolio </button>
-    <button routerLink="contact" mat-raised-button> contact </button>
-    <button mat-raised-button> CV </button>
+<div fxLayout="row" fxLayoutAlign="start">
+  <div @slideInOut class="nav-container" *ngIf="show">
+    <div fxFill fxLayout="column" fxLayoutAlign="start center">
+      <button
+        (click)="toggleMenu()"
+        class="menu-button"
+        routerLink=""
+        mat-button
+      >
+        home
+      </button>
+      <button
+        (click)="toggleMenu()"
+        class="menu-button"
+        routerLink="about"
+        mat-button
+      >
+        about
+      </button>
+      <button
+        (click)="toggleMenu()"
+        class="menu-button"
+        routerLink="skills"
+        mat-button
+      >
+        skills
+      </button>
+      <button
+        (click)="toggleMenu()"
+        class="menu-button"
+        routerLink="portfolio"
+        mat-button
+      >
+        portfolio
+      </button>
+      <button
+        (click)="toggleMenu()"
+        class="menu-button"
+        routerLink="contact"
+        mat-button
+      >
+        contact
+      </button>
+      <button (click)="toggleMenu()" class="menu-button" mat-button>CV</button>
+    </div>
+  </div>
+  <div>
+    <button
+      mat-button
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      (click)="toggleMenu()"
+    >
+      <div>
+        <div @fadeInOut *ngIf="!show" style="padding-top: 1rem!important;">
+          <icon size="2.3rem" name="menu" color="black"></icon>
+        </div>
+        <span @fadeInOut *ngIf="show">
+          <div style="padding: 1rem;font-size: 2.2rem; font-weight: 800;">
+            X
+          </div>
+        </span>
+      </div>
+    </button>
+  </div>
 </div>
