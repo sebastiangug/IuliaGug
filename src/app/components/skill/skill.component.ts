@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input
+} from '@angular/core';
+import { ISkill } from '../../../models/skill.model';
 
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.scss']
+  styleUrls: ['./skill.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SkillComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SkillComponent {
+  @Input() skill: ISkill;
+  constructor() {}
 }
