@@ -50,6 +50,9 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
           this.portfolio.description,
           Validators.required
         ),
+        externalLink: new FormControl(
+          this.portfolio.externalLink ? this.portfolio.externalLink : null
+        ),
         link: new FormControl(this.portfolio.link, Validators.required),
         image: new FormControl(this.portfolio.image, Validators.required),
         tags: this.formBuilder.array([]),
@@ -64,6 +67,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         name: new FormControl('', Validators.required),
         description: new FormControl('', Validators.required),
         link: new FormControl('', Validators.required),
+        externalLink: new FormControl(null),
         image: new FormControl('', Validators.required),
         tags: this.formBuilder.array([this.createTag()]),
         createdAt: new FormControl(new Date(Date.now()))

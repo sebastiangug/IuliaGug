@@ -1,44 +1,19 @@
 <div fxLayout="row" fxLayoutAlign="start">
-  <div @slideInOut class="nav-container" *ngIf="show">
-    <div fxFill fxLayout="column" fxLayoutAlign="start center">
-      <button
-        (click)="toggleMenu()"
-        class="menu-button"
-        routerLink=""
-        mat-button
-      >
+  <div class="nav-container" [ngClass]="{ show: show }">
+    <div fxFill fxLayout="column" fxLayoutAlign="center center">
+      <button class="menu-button" routerLink="" mat-button>
         home
       </button>
-      <button
-        (click)="toggleMenu()"
-        class="menu-button"
-        routerLink="about"
-        mat-button
-      >
+      <button class="menu-button" routerLink="about" mat-button>
         about
       </button>
-      <button
-        (click)="toggleMenu()"
-        class="menu-button"
-        routerLink="skills"
-        mat-button
-      >
+      <button class="menu-button" routerLink="skills" mat-button>
         skills
       </button>
-      <button
-        (click)="toggleMenu()"
-        class="menu-button"
-        routerLink="portfolio"
-        mat-button
-      >
+      <button class="menu-button" routerLink="portfolio" mat-button>
         portfolio
       </button>
-      <button
-        (click)="toggleMenu()"
-        class="menu-button"
-        routerLink="contact"
-        mat-button
-      >
+      <button class="menu-button" routerLink="contact" mat-button>
         contact
       </button>
       <button (click)="toggleMenu()" class="menu-button" mat-button>CV</button>
@@ -52,10 +27,14 @@
       (click)="toggleMenu()"
     >
       <div>
-        <div @fadeInOut *ngIf="!show" style="padding-top: 1rem!important;">
+        <div
+          class="toggle-nav"
+          [ngClass]="{ show: !show }"
+          style="padding-top: 1rem!important;"
+        >
           <icon size="2.3rem" name="menu" color="black"></icon>
         </div>
-        <span @fadeInOut *ngIf="show">
+        <span class="toggle-nav" [ngClass]="{ show: show }">
           <div style="padding: 1rem;font-size: 2.2rem; font-weight: 800;">
             X
           </div>

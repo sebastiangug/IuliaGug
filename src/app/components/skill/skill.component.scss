@@ -1,0 +1,21 @@
+.container {
+  min-width: 350px;
+  width: 500px;
+  max-width: 98vw;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  .name {
+    padding: 1rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+
+  .image {
+    height: 10vw;
+    width: 10vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-clip-path: circle(97.8% at 99% 1%);
+    clip-path: circle(97.8% at 99% 1%);
+  }
+}

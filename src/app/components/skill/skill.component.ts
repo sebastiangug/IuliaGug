@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Input
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ISkill } from '../../../models/skill.model';
 
 @Component({
@@ -14,5 +9,4 @@ import { ISkill } from '../../../models/skill.model';
 })
 export class SkillComponent {
   @Input() skill: ISkill;
-  constructor() {}
 }
