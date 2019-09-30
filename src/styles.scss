@@ -35,6 +35,7 @@ html,
 body {
   margin: 0 !important;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  width: 100vw;
 }
 
 .title-1 {
@@ -44,6 +45,9 @@ body {
 
 main {
   padding: 2rem;
+  width: calc(100vw - 350px);
+  position: relative;
+  margin-left: 350px !important;
 }
 
 snack-bar-container {
@@ -79,4 +83,20 @@ app-wip-overlay {
   width: 100%;
   height: 100%;
   background: slategray;
+}
+
+app-nav-desktop {
+  position: fixed;
+}
+
+app-manage-skills {
+  width: calc(100vw - 350px);
+}
+
+app-manage-portfolio {
+  width: calc(100vw - 350px);
+}
+
+app-skills {
+  width: calc(100vw - 350px);
 }

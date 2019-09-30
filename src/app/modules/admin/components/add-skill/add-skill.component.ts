@@ -5,7 +5,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnDestroy
+  OnDestroy,
+  ChangeDetectorRef
 } from '@angular/core';
 import {
   FormBuilder,
@@ -16,12 +17,13 @@ import {
 } from '@angular/forms';
 import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange, ErrorStateMatcher } from '@angular/material';
 import { ISkill, ISkillPortfolio } from '../../../../../models/skill.model';
 import {
   AngularFirestoreCollection,
   AngularFirestore
 } from '@angular/fire/firestore';
+import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
 
 @Component({
   selector: 'app-add-skill',
@@ -34,6 +36,9 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   tags: FormArray;
   formPortfolioItems: FormArray;
   subscription: Subscription;
+  portfolioSubscription: Subscription;
+  allPortfolioItems: IPortfolio[];
+  matcher: ErrorStateMatcher = new FormErrorStateMatcher();
 
   portfolioDocs: Observable<IPortfolio[]>;
   portfolioCollection: AngularFirestoreCollection<IPortfolio>;
@@ -41,9 +46,16 @@ export class AddSkillComponent implements OnInit, OnDestroy {
   @Input() skill: ISkill;
   @Input() success: Observable<boolean>;
   @Output() submitSkill: EventEmitter<ISkill> = new EventEmitter();
-  constructor(private formBuilder: FormBuilder, private afs: AngularFirestore) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private afs: AngularFirestore,
+    private ref: ChangeDetectorRef
+  ) {
     this.portfolioCollection = this.afs.collection('portfolio');
     this.portfolioDocs = this.portfolioCollection.valueChanges();
+    this.portfolioDocs.subscribe((docs: IPortfolio[]) => {
+      this.allPortfolioItems = docs;
+    });
   }
 
   ngOnInit() {
@@ -91,6 +103,7 @@ export class AddSkillComponent implements OnInit, OnDestroy {
         createdAt: new Date(Date.now())
       });
     }
+    this.ref.detectChanges();
   }
 
   addTag(tag?: string) {

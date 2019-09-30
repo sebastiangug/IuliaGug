@@ -27,18 +27,9 @@
       (click)="toggleMenu()"
     >
       <div>
-        <div
-          class="toggle-nav"
-          [ngClass]="{ show: !show }"
-          style="padding-top: 1rem!important;"
-        >
-          <icon size="2.3rem" name="menu" color="black"></icon>
+        <div class="toggle-nav" style="padding-top: 1rem!important;">
+          <icon size="1.7rem" name="menu" color="black"></icon>
         </div>
-        <span class="toggle-nav" [ngClass]="{ show: show }">
-          <div style="padding: 1rem;font-size: 2.2rem; font-weight: 800;">
-            X
-          </div>
-        </span>
       </div>
     </button>
   </div>

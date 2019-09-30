@@ -7,7 +7,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavDesktopComponent {
-  show = false;
+  show = true;
 
   toggleMenu() {
     this.show = !this.show;

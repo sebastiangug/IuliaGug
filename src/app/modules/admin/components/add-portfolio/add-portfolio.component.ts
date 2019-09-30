@@ -5,7 +5,8 @@ import {
   EventEmitter,
   Output,
   Input,
-  OnDestroy
+  OnDestroy,
+  ChangeDetectorRef
 } from '@angular/core';
 import {
   FormGroup,
@@ -16,6 +17,8 @@ import {
 } from '@angular/forms';
 import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
+import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
+import { ErrorStateMatcher } from '@angular/material';
 
 @Component({
   selector: 'app-add-portfolio',
@@ -27,11 +30,15 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   addPortfolioForm: FormGroup;
   tags: FormArray;
   subscription: Subscription;
+  matcher: ErrorStateMatcher = new FormErrorStateMatcher();
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   @Input() success: Observable<boolean>;
   @Input() portfolio: IPortfolio;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private ref: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.subscription = this.success.subscribe((success: boolean) => {
@@ -63,6 +70,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         this.addTag(el);
       });
     } else {
+      console.log('BUILDING FORM from scratch');
       this.addPortfolioForm = this.formBuilder.group({
         name: new FormControl('', Validators.required),
         description: new FormControl('', Validators.required),
@@ -73,6 +81,8 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         createdAt: new FormControl(new Date(Date.now()))
       });
     }
+
+    this.ref.detectChanges();
   }
 
   addTag(tag?: string) {

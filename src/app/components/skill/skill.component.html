@@ -1,13 +1,41 @@
-<div class="container" fxLayout="column">
-  <div fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="space-between start">
-      <div fxLayout="column">
-        <div class="name">{{ skill.name }}</div>
+<div
+  class="container"
+  (click)="toggle()"
+  [ngClass]="{ hovering: hovering }"
+  #container
+>
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayout="column" fxFlex="70">
+      <div class="name">{{ skill.name }}</div>
+      <div class="description">
+        {{
+          skill.description.length > 120
+            ? skill.description.substring(0, 120) + '...'
+            : skill.description
+        }}
       </div>
-      <div
-        class="image"
-        [style.background-image]="'url(' + skill.image + ')'"
-      ></div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div class="tag" *ngFor="let tag of skill.tags">
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+
+    <div
+      fxFlex
+      class="image"
+      [style.background-image]="'url(' + skill.image + ')'"
+      [style.height.px]="bgHeight"
+    ></div>
+  </div>
+  <div
+    [ngClass]="{ show: open }"
+    class="projects"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div class="title">
+      Projects
     </div>
   </div>
 </div>

@@ -7,15 +7,28 @@
 >
   <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
     <mat-form-field>
-      <input formControlName="name" placeholder="name" matInput type="text" />
+      <input
+        [errorStateMatcher]="matcher"
+        formControlName="name"
+        placeholder="name"
+        matInput
+        type="text"
+      />
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="link" placeholder="link" matInput type="text" />
+      <input
+        [errorStateMatcher]="matcher"
+        formControlName="link"
+        placeholder="link"
+        matInput
+        type="text"
+      />
     </mat-form-field>
   </div>
   <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
     <mat-form-field>
       <input
+        [errorStateMatcher]="matcher"
         formControlName="externalLink"
         placeholder="External Link"
         matInput
@@ -23,11 +36,18 @@
       />
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="image" placeholder="image" matInput type="text" />
+      <input
+        [errorStateMatcher]="matcher"
+        formControlName="image"
+        placeholder="image"
+        matInput
+        type="text"
+      />
     </mat-form-field>
   </div>
   <mat-form-field fxFill>
     <textarea
+      [errorStateMatcher]="matcher"
       formControlName="description"
       placeholder="description"
       matInput
@@ -57,7 +77,12 @@
       fxLayoutGap="10px"
     >
       <mat-form-field fxFlex="80">
-        <input matInput [formControlName]="i" placeholder="tag" />
+        <input
+          matInput
+          [errorStateMatcher]="matcher"
+          [formControlName]="i"
+          placeholder="tag"
+        />
       </mat-form-field>
       <div fxFlex="20">
         <button
