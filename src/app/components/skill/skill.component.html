@@ -9,7 +9,11 @@
     <div fxLayout="column" fxFlex="70">
       <div class="name">{{ skill.name }}</div>
       <div fxLayout="row" fxLayoutAlign="start center">
-        <div class="tag" *ngFor="let tag of skill.tags">
+        <div
+          class="tag"
+          *ngFor="let tag of skill.tags"
+          [routerLink]="'/tag/' + tag"
+        >
           {{ tag }}
         </div>
       </div>
