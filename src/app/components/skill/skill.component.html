@@ -1,4 +1,5 @@
 <div
+  fxFill
   class="container"
   (click)="toggle()"
   [ngClass]="{ hovering: hovering }"
@@ -17,13 +18,19 @@
     <div
       fxFlex
       class="image"
-      [style.background-image]="'url(' + skill.image + ')'"
+      [style.background-image]="
+        'url(' +
+        'https://firebasestorage.googleapis.com/v0/b/sebastiangug-com.appspot.com/o/' +
+        skill.image +
+        '?alt=media' +
+        ')'
+      "
       [style.height.px]="bgHeight"
     ></div>
   </div>
   <div
     [ngClass]="{ show: open }"
-    class="projects"
+    class="extended-container"
     fxLayout="column"
     fxLayoutAlign="center center"
   >

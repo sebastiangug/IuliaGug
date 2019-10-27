@@ -1,6 +1,6 @@
 .container {
   min-width: 250px;
-  width: 300px;
+  width: 325px;
   max-width: 98vw;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -15,7 +15,7 @@
     padding: 1rem;
     font-weight: 500;
     font-size: 1.3rem;
-    white-space: nowrap;
+    white-space: wrap;
   }
 
   .description {
@@ -41,12 +41,13 @@
     font-weight: 500;
     cursor: pointer;
     -webkit-user-select: none;
+    z-index: 5;
     &:hover {
       background: rgba(0, 0, 0, 0.15);
     }
   }
 
-  .projects {
+  .extended-container {
     visibility: hidden;
     opacity: 0;
     height: 0;

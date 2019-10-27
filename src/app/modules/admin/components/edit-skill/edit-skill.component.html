@@ -10,7 +10,14 @@
     fxLayoutAlign="center center"
     fxLayoutGap="20px"
   >
-    <img [src]="skill.image" height="100" />
+    <img
+      [src]="
+        'https://firebasestorage.googleapis.com/v0/b/sebastiangug-com.appspot.com/o/' +
+        skill.image +
+        '?alt=media'
+      "
+      height="100"
+    />
     <mat-card-title>
       {{ skill.name }}
     </mat-card-title>
