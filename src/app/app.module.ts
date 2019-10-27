@@ -22,6 +22,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { WipOverlayComponent } from './components/wip-overlay/wip-overlay.component';
 import { DevComponent } from './components/dev/dev.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TagComponent } from './pages/tag/tag.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NotFoundComponent,
     LoginComponent,
     WipOverlayComponent,
-    DevComponent
+    DevComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,
