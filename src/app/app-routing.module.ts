@@ -8,6 +8,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AdminGuard } from './guards/admin.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
+import { TagComponent } from './pages/tag/tag.component';
 
 const routes: Routes = [
   { path: 'skills', component: SkillsComponent, pathMatch: 'full' },
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: './modules/admin/admin.module#AdminModule',
     canLoad: [AdminGuard]
+  },
+  {
+    path: 'tag/:tag',
+    component: TagComponent
   },
   {
     path: 'login',
