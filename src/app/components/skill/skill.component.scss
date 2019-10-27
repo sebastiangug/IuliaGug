@@ -1,0 +1,67 @@
+.container {
+  min-width: 250px;
+  width: 300px;
+  max-width: 98vw;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-bottom: 0.3rem solid rgb(241, 63, 18);
+  transition: 100ms all ease-in-out;
+  &.hovering {
+    transition: 100ms all ease-in-out;
+    box-shadow: 7px 7px 14px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .name {
+    padding: 1rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+
+  .description {
+    padding: 1rem;
+    padding-top: 0;
+    font-weight: 300;
+  }
+
+  .image {
+    position: relative;
+    height: 127px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-clip-path: circle(97.8% at 99% 1%);
+    clip-path: circle(97.8% at 99% 1%);
+  }
+
+  .tag {
+    color: blue;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-user-select: none;
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .projects {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: 100ms all ease-in-out;
+    &.show {
+      transition: 100ms all ease-in-out;
+      height: 200px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .title {
+      font-size: 2rem;
+      color: white;
+      font-weight: 500;
+    }
+  }
+}

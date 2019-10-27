@@ -1,0 +1,81 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$sebastiangug-primary: mat-palette($mat-indigo);
+$sebastiangug-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$sebastiangug-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$sebastiangug-theme: mat-light-theme(
+  $sebastiangug-primary,
+  $sebastiangug-accent,
+  $sebastiangug-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($sebastiangug-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+// MAIN BODY STYLES
+html,
+body {
+  margin: 0 !important;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  width: 100vw;
+}
+
+.title-1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+main {
+  width: 100%;
+  margin-top: 80px !important;
+  margin: 2%;
+}
+
+app-nav-desktop {
+  position: fixed;
+  z-index: 99;
+}
+
+// NOTIFICATION CSS
+snack-bar-container {
+  &.success {
+    color: white;
+    background: linear-gradient(-120deg, #67d409, #09d46d);
+  }
+
+  &.error {
+    color: white;
+    background: linear-gradient(-120deg, #fb391a, #f41869);
+  }
+
+  &.warning {
+    color: white;
+    background: linear-gradient(-120deg, #dd9518, #ec6f09);
+  }
+
+  .mat-simple-snackbar {
+    width: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px 1px slategray;
+  }
+}
