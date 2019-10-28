@@ -1,8 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {
-  AngularFirestoreCollection,
-  AngularFirestore
-} from '@angular/fire/firestore';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { ISkill } from '../../../models/skill.model';
 import { Observable } from 'rxjs';
 

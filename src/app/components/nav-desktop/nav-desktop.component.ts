@@ -10,6 +10,7 @@ export class NavDesktopComponent {
   show = true;
 
   toggleMenu() {
+    console.log('toggling menu');
     this.show = !this.show;
   }
 }
