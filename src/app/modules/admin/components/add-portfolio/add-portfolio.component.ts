@@ -19,6 +19,7 @@ import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
 import { ErrorStateMatcher } from '@angular/material';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-portfolio',
@@ -31,6 +32,8 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   tags: FormArray;
   subscription: Subscription;
   matcher: ErrorStateMatcher = new FormErrorStateMatcher();
+  data = '<p> Hello, world!</p>';
+  editor = ClassicEditor;
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   @Input() success: Observable<boolean>;
