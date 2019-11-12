@@ -1,8 +1,6 @@
-<div fxLayout="row" fxLayoutAlign="start">
-  <app-nav-desktop [admin]="admin | async"> </app-nav-desktop>
-  <main fxLayout="column" fxLayoutAlign="center center">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+<app-nav-desktop [admin]="admin | async"> </app-nav-desktop>
+<main>
+  <router-outlet></router-outlet>
+</main>
 
 <icon-definitions [hidden]="true"></icon-definitions>

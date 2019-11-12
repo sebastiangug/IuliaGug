@@ -7,7 +7,7 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
+@import './global.scss';
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -34,25 +34,24 @@ $sebastiangug-theme: mat-light-theme(
 // MAIN BODY STYLES
 html,
 body {
-  margin: 0 !important;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  width: 100vw;
+}
+
+main {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: $navHeight;
+}
+
+app-nav-desktop {
+  position: fixed;
+  height: $navHeight;
+  z-index: 99;
 }
 
 .title-1 {
   font-size: 2.2rem;
   font-weight: 500;
-}
-
-main {
-  width: 100%;
-  margin-top: 80px !important;
-  margin: 2%;
-}
-
-app-nav-desktop {
-  position: fixed;
-  z-index: 99;
 }
 
 // NOTIFICATION CSS

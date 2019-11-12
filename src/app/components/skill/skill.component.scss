@@ -1,11 +1,11 @@
 .container {
-  min-width: 250px;
-  width: 325px;
-  max-width: 98vw;
+  min-width: 300px;
+  width: 100%;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border-bottom: 0.3rem solid rgb(241, 63, 18);
   transition: 100ms all ease-in-out;
+  min-height: 120px;
   &.hovering {
     transition: 100ms all ease-in-out;
     box-shadow: 7px 7px 14px 0px rgba(0, 0, 0, 0.3);
@@ -57,6 +57,11 @@
       height: 200px;
       opacity: 1;
       visibility: visible;
+      position: absolute;
+      background: white;
+      z-index: 99;
+      width: 320px;
+      box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
     }
 
     .title {
