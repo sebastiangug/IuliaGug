@@ -141,12 +141,10 @@
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-9.0.0-rc.3.tgz#3a76175ffe78496c67ce5a8ab47f20d5d8b8d98c"
   integrity sha512-uTSTQzFfpHQ4JSNV0XQOJu+YWXoYvgQfA/+50/TJhLlpQcSDqEHNw3FdxAOtDha90uZEo0GmOSsUDOUbcF5lzw==
 
-"@angular/cdk@~8.2.0":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.2.3.tgz#16b96ffa935cbf5a646757ecaf2b19c434678f72"
-  integrity sha512-ZwO5Sn720RA2YvBqud0JAHkZXjmjxM0yNzCO8RVtRE9i8Gl26Wk0j0nQeJkVm4zwv2QO8MwbKUKGTMt8evsokA==
-  dependencies:
-    tslib "^1.7.1"
+"@angular/cdk@~9.0.0-rc.3":
+  version "9.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-9.0.0-rc.3.tgz#af7fecaa3ea399732c7cb0fca4ba5ed25570f145"
+  integrity sha512-UgTRQZt5kCCpiVMGHbmaBIR8Bkgq8bl8y1FK0pyYYV6CZRzSID9+JzVh3rb0k9lYYPEBg0Ba5+SpzlT9rYb/pg==
   optionalDependencies:
     parse5 "^5.0.0"
 
@@ -229,12 +227,10 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-9.0.0-rc.3.tgz#cb01917e39141bd9d6c26ca25dc474d1cf9cadce"
   integrity sha512-M5di2NfvRDFRd7diZX7V5NX1X8uMfVhOeNLTab+w+7sPLIlNpNL3wt0sXE/PM26Ga9o97vgLU/6n3NxO+FV4fg==
 
-"@angular/material@^8.2.0":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-8.2.3.tgz#16543e4e06a3fde2651a25cfe126e88e714ae105"
-  integrity sha512-SOczkIaqes+r+9XF/UUiokidfFKBpHkOPIaFK857sFD0FBNPvPEpOr5oHKCG3feERRwAFqHS7Wo2ohVEWypb5A==
-  dependencies:
-    tslib "^1.7.1"
+"@angular/material@^9.0.0-rc.3":
+  version "9.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-9.0.0-rc.3.tgz#b86416ffda6863469daccc5e2d07c01db2a5d4ee"
+  integrity sha512-EISwrGvKxOPIGhSmQAzONwJAjjjFVg2n1FSmCg5U8trsOT4M8uJp7ATm91t+ag8NJVKnaYcbdhmTSJRgtnpY4g==
 
 "@angular/platform-browser-dynamic@~9.0.0-rc.3":
   version "9.0.0-rc.3"
@@ -4726,11 +4722,6 @@ gtoken@^1.2.1:
     jws "^3.0.0"
     mime "^1.4.1"
     request "^2.72.0"
-
-hammerjs@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
-  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handle-thing@^2.0.0:
   version "2.0.0"

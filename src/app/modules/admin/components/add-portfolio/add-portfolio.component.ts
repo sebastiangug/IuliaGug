@@ -18,7 +18,7 @@ import {
 import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
-import { ErrorStateMatcher } from '@angular/material';
+import { ErrorStateMatcher } from '@angular/material/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({

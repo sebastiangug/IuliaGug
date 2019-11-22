@@ -17,7 +17,8 @@ import {
 } from '@angular/forms';
 import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
-import { MatSelectChange, ErrorStateMatcher } from '@angular/material';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatSelectChange } from '@angular/material/select';
 import { ISkill, ISkillPortfolio } from '../../../../../models/skill.model';
 import {
   AngularFirestoreCollection,
