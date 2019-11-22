@@ -31,20 +31,4 @@
       [style.height.px]="bgHeight"
     ></div>
   </div>
-  <div
-    [ngClass]="{ show: open }"
-    class="extended-container"
-    fxLayout="column"
-    fxLayoutAlign="center center"
-  >
-    <div>
-      <div class="description">
-        {{
-          skill.description.length > 120
-            ? skill.description.substring(0, 120) + '...'
-            : skill.description
-        }}
-      </div>
-    </div>
-  </div>
 </div>
