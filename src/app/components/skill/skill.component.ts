@@ -20,7 +20,7 @@ export class SkillComponent implements AfterViewInit {
   hovering = false;
   open = false;
   @Input() skill: ISkill;
-  @ViewChild('container', { static: false }) container: any;
+  @ViewChild('container') container: any;
 
   @HostListener('mouseover')
   mouseOver() {
