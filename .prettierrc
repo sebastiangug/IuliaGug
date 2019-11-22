@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.printWidth": 90,
+  "prettier.tabWidth": 1,
+  "prettier.useTabs": true,
+  "prettier.singleQuote": true
+}

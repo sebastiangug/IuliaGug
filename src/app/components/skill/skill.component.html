@@ -1,10 +1,4 @@
-<div
-  class="container"
-  (click)="toggle()"
-  [ngClass]="{ hovering: hovering }"
-  #container
-  fxLayout="column"
->
+<div class="container" (click)="toggle()" #container fxLayout="column">
   <div fxLayout="row">
     <div fxLayout="column" fxFlex="70" fxLayoutAlign="space-between start">
       <div class="name">{{ skill.name }}</div>

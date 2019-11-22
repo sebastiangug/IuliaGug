@@ -6,7 +6,7 @@
   border-bottom: 0.3rem solid rgb(241, 63, 18);
   transition: 100ms all ease-in-out;
   min-height: 120px;
-  &.hovering {
+  &:hover {
     transition: 100ms all ease-in-out;
     box-shadow: 7px 7px 14px 0px rgba(0, 0, 0, 0.3);
   }

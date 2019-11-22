@@ -23,6 +23,7 @@ import { WipOverlayComponent } from './components/wip-overlay/wip-overlay.compon
 import { DevComponent } from './components/dev/dev.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TagComponent } from './pages/tag/tag.component';
+import { SkillDetailsComponent } from './components/skill-details/skill-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { TagComponent } from './pages/tag/tag.component';
     LoginComponent,
     WipOverlayComponent,
     DevComponent,
-    TagComponent
+    TagComponent,
+    SkillDetailsComponent
   ],
   imports: [
     BrowserModule,

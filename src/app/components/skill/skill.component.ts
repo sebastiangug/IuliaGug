@@ -6,33 +6,22 @@ import {
   ChangeDetectorRef,
   AfterViewInit,
   HostListener
-} from '@angular/core';
-import { ISkill } from '../../../models/skill.model';
+} from "@angular/core";
+import { ISkill } from "../../../models/skill.model";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-skill',
-  templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.scss'],
+  selector: "app-skill",
+  templateUrl: "./skill.component.html",
+  styleUrls: ["./skill.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillComponent implements AfterViewInit {
   bgHeight = 0;
-  hovering = false;
-  open = false;
   @Input() skill: ISkill;
-  @ViewChild('container') container: any;
+  @ViewChild("container") container: any;
 
-  @HostListener('mouseover')
-  mouseOver() {
-    this.hovering = true;
-  }
-
-  @HostListener('mouseleave')
-  mouseLeave() {
-    this.hovering = false;
-  }
-
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef, private dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.bgHeight = this.container.nativeElement.clientHeight;
@@ -40,6 +29,6 @@ export class SkillComponent implements AfterViewInit {
   }
 
   toggle() {
-    this.open = !this.open;
+    //
   }
 }
