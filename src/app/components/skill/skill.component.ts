@@ -5,21 +5,21 @@ import {
   ViewChild,
   ChangeDetectorRef,
   AfterViewInit,
-  HostListener
-} from "@angular/core";
-import { ISkill } from "../../../models/skill.model";
-import { MatDialog } from "@angular/material/dialog";
+} from '@angular/core';
+import { ISkill } from '../../../models/skill.model';
+import { MatDialog } from '@angular/material/dialog';
+import { SkillDetailsComponent } from '../skill-details/skill-details.component';
 
 @Component({
-  selector: "app-skill",
-  templateUrl: "./skill.component.html",
-  styleUrls: ["./skill.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-skill',
+  templateUrl: './skill.component.html',
+  styleUrls: ['./skill.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillComponent implements AfterViewInit {
   bgHeight = 0;
   @Input() skill: ISkill;
-  @ViewChild("container") container: any;
+  @ViewChild('container') container: any;
 
   constructor(private ref: ChangeDetectorRef, private dialog: MatDialog) {}
 
@@ -29,6 +29,6 @@ export class SkillComponent implements AfterViewInit {
   }
 
   toggle() {
-    //
+    this.dialog.open(SkillDetailsComponent, { data: this.skill });
   }
 }

@@ -41,7 +41,7 @@ import { SkillDetailsComponent } from './components/skill-details/skill-details.
     WipOverlayComponent,
     DevComponent,
     TagComponent,
-    SkillDetailsComponent
+    SkillDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +51,10 @@ import { SkillDetailsComponent } from './components/skill-details/skill-details.
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SkillDetailsComponent],
 })
 export class AppModule {}
