@@ -29,8 +29,6 @@ $sebastiangug-theme: mat-light-theme(
 // that you are using.
 @include angular-material-theme($sebastiangug-theme);
 
-/* You can add global styles to this file, and also import other style files */
-
 // MAIN BODY STYLES
 html,
 body {
@@ -77,4 +75,14 @@ snack-bar-container {
     font-weight: 500;
     text-shadow: 1px 1px 1px 1px slategray;
   }
+}
+
+// ADMIN STUFF
+
+app-add-skill {
+  max-width: 600px;
+}
+
+app-edit-skill {
+  max-width: 800px;
 }
