@@ -96,6 +96,11 @@
       </div>
     </div>
   </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <ckeditor [editor]="editor" [data]="data"></ckeditor>
+  </div>
+
   <div fxLayoutAlign="center center">
     <button
       [disabled]="!addPortfolioForm.valid"
@@ -113,9 +118,3 @@
     </button>
   </div>
 </form>
-
-<!-- <ckeditor
-  style="min-height: 500px!important;"
-  [editor]="editor"
-  [data]="data"
-></ckeditor> -->
