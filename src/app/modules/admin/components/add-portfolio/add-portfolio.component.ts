@@ -15,7 +15,10 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { IPortfolio } from '../../../../../models/portfolio.model';
+import {
+  IPortfolio,
+  FeedbackItem,
+} from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -30,6 +33,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export class AddPortfolioComponent implements OnInit, OnDestroy {
   addPortfolioForm: FormGroup;
   tags: FormArray;
+  sliderImages: FormArray;
+  feedback: FormArray;
   subscription: Subscription;
   matcher: ErrorStateMatcher = new FormErrorStateMatcher();
   editorData = '<p> Hello, world!</p>';
@@ -67,10 +72,20 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         image: new FormControl(this.portfolio.image, Validators.required),
         tags: this.formBuilder.array([]),
         createdAt: this.portfolio.createdAt,
-        content: new FormControl(this.portfolio?.content ?? ''),
+        content: new FormControl(this.portfolio.content ?? ''),
+        sliderImages: this.formBuilder.array([]),
+        feedback: this.formBuilder.array([]),
       });
-      this.portfolio.tags.forEach((el: string) => {
+      this.portfolio.tags?.forEach((el: string) => {
         this.addTag(el);
+      });
+
+      this.portfolio.sliderImages?.forEach((el: string) => {
+        this.addSliderImage(el);
+      });
+
+      this.portfolio.feedback?.forEach((el: FeedbackItem) => {
+        this.addFeedback(el);
       });
     } else {
       this.addPortfolioForm = this.formBuilder.group({
@@ -82,10 +97,45 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         tags: this.formBuilder.array([this.createTag()]),
         createdAt: new FormControl(new Date(Date.now())),
         content: new FormControl(''),
+        sliderImages: this.formBuilder.array([this.createSliderImage()]),
+        feedback: this.formBuilder.array([this.createFeedback()]),
       });
     }
 
     this.ref.detectChanges();
+  }
+
+  addFeedback(feedback?: FeedbackItem) {
+    this.feedback = this.addPortfolioForm.get('feedback') as FormArray;
+    this.feedback.push(this.createFeedback(feedback));
+  }
+
+  createFeedback(feedback?: FeedbackItem) {
+    return this.formBuilder.group({
+      name: new FormControl(feedback?.name ?? ''),
+      image: new FormControl(feedback?.image ?? ''),
+      job: new FormControl(feedback?.job ?? ''),
+      message: new FormControl(feedback?.message ?? ''),
+    });
+  }
+
+  deleteFeedback(i: number) {
+    this.feedback = this.addPortfolioForm.get('feedback') as FormArray;
+    this.feedback.removeAt(i);
+  }
+
+  addSliderImage(image?: string) {
+    this.sliderImages = this.addPortfolioForm.get('sliderImages') as FormArray;
+    this.sliderImages.push(this.createSliderImage(image));
+  }
+
+  createSliderImage(image?: string) {
+    return this.formBuilder.control(image ?? '');
+  }
+
+  deleteSliderImage(i: number) {
+    this.sliderImages = this.addPortfolioForm.get('sliderImages') as FormArray;
+    this.sliderImages.removeAt(i);
   }
 
   addTag(tag?: string) {
@@ -94,7 +144,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   }
 
   createTag(tag?: string) {
-    return this.formBuilder.control(tag ? tag : '');
+    return this.formBuilder.control(tag ?? '');
   }
 
   deleteTag(i: number) {

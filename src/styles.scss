@@ -36,15 +36,15 @@ body {
 }
 
 // Global breakpoint between mobile, desktop
-@media only screen and (max-width: 959px) {
-  main {
+
+main {
+  @media only screen and (max-width: 959px) {
     padding-left: 3%;
     padding-right: 3%;
     padding-top: $navHeight;
   }
-}
-@media only screen and (min-width: 960px) {
-  main {
+
+  @media only screen and (min-width: 960px) {
     padding-left: 6%;
     padding-right: 6%;
     padding-top: $navHeight;

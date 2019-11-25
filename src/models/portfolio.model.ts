@@ -1,3 +1,10 @@
+export interface FeedbackItem {
+  name: string;
+  job: string;
+  image: string;
+  message: string;
+}
+
 export interface IPortfolio {
   name: string;
   description: string;
@@ -8,4 +15,6 @@ export interface IPortfolio {
   content?: string;
   id: string;
   createdAt: string;
+  sliderImages: string[];
+  feedback: FeedbackItem[];
 }

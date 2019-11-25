@@ -97,6 +97,143 @@
     </div>
   </div>
 
+  <button
+    type="button"
+    mat-raised-button
+    (click)="addSliderImage()"
+    color="accent"
+  >
+    + Add Slider Image
+  </button>
+  <div
+    fxLayout="column"
+    fxLayoutGap="15px"
+    formArrayName="sliderImages"
+    *ngFor="
+      let image of addPortfolioForm.get('sliderImages').value;
+      let i = index;
+      trackBy: trackByFn
+    "
+    fxFill
+  >
+    <div
+      fxLayout="row"
+      fxFlex="100"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
+      <mat-form-field fxFlex="95">
+        <input
+          matInput
+          [errorStateMatcher]="matcher"
+          [formControlName]="i"
+          placeholder="image"
+        />
+      </mat-form-field>
+      <div fxFlex="20">
+        <button
+          type="button"
+          mat-raised-button
+          color="warn"
+          (click)="deleteSliderImage(i)"
+        >
+          <img src="../../../../assets/icons/garbage.svg" height="20px" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    mat-raised-button
+    (click)="addSliderImage()"
+    color="accent"
+  >
+    + Add Feedback
+  </button>
+  <div
+    fxLayout="column"
+    fxLayoutGap="15px"
+    formArrayName="feedback"
+    *ngFor="
+      let item of addPortfolioForm.get('feedback').value;
+      let i = index;
+      trackBy: trackByFn
+    "
+    fxFill
+  >
+    <div
+      fxLayout="row"
+      fxFlex="100"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
+      <form
+        [formGroupName]="i"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxFlex="100"
+      >
+        <div
+          fxLayout="row"
+          fxFill
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+        >
+          <mat-form-field fxFlex="50">
+            <input
+              matInput
+              [errorStateMatcher]="matcher"
+              formControlName="image"
+              placeholder="image"
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex="50">
+            <input
+              matInput
+              [errorStateMatcher]="matcher"
+              formControlName="name"
+              placeholder="name"
+            />
+          </mat-form-field>
+        </div>
+        <div
+          fxLayout="row"
+          fxFill
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+        >
+          <mat-form-field fxFlex="50">
+            <input
+              matInput
+              [errorStateMatcher]="matcher"
+              formControlName="job"
+              placeholder="job"
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex="50">
+            <input
+              matInput
+              [errorStateMatcher]="matcher"
+              formControlName="message"
+              placeholder="message"
+            />
+          </mat-form-field>
+        </div>
+        <div fxFlex="20">
+          <button
+            type="button"
+            mat-raised-button
+            color="warn"
+            (click)="deleteSliderImage(i)"
+          >
+            <img src="../../../../assets/icons/garbage.svg" height="20px" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div fxLayout="column" fxLayoutAlign="center center">
     <ckeditor
       [editor]="editor"
@@ -122,5 +259,3 @@
     </button>
   </div>
 </form>
-
-<pre> {{ addPortfolioForm.value | json }}</pre>
