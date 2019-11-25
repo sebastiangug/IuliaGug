@@ -98,7 +98,7 @@
   </div>
 
   <div fxLayout="column" fxLayoutAlign="center center">
-    <ckeditor [editor]="editor" [data]="data"></ckeditor>
+    <ckeditor [editor]="editor" [data]="editorData"></ckeditor>
   </div>
 
   <div fxLayoutAlign="center center">
@@ -118,3 +118,5 @@
     </button>
   </div>
 </form>
+
+<pre> {{ addPortfolioForm.value | json }}</pre>

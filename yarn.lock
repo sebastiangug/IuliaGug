@@ -210,7 +210,7 @@
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.2.1.tgz#4b966aaed10cda0b430c9d80769b39d08032004d"
   integrity sha512-pS4zWhLLANzMbYVIKNtebDQKhm9+KANUDvDV6DwKP24XHzkZdvazKe1HC6uXWlf7QmDxSPFleCSBkn0tnQQzdQ==
 
-"@angular/flex-layout@^8.0.0-beta.27":
+"@angular/flex-layout@8.0.0-beta.27":
   version "8.0.0-beta.27"
   resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-8.0.0-beta.27.tgz#a697d5a90e6d04c06b02ee872f88f384d1723f7c"
   integrity sha512-qmpvQPesU4ZQ56IscwgmVRpK2UnyV+gwvXUql7TMv0QV215hLcHczjGsrKkLfW2By5E7XEyDat9br72uVXcPMw==
@@ -1314,6 +1314,11 @@
   dependencies:
     "@types/long" "*"
     "@types/node" "*"
+
+"@types/ckeditor@^4.9.8":
+  version "4.9.8"
+  resolved "https://registry.yarnpkg.com/@types/ckeditor/-/ckeditor-4.9.8.tgz#2585bfea409c0d9e970d04611fb22726c6a6d219"
+  integrity sha512-UM2t8mRul1vT/Al3c1L5elal925YstzcBQHLHk+hVvEoFOUkQKokePnGgD1L7K9n4h3hoPDDwc5jEKeUU3UxMw==
 
 "@types/estree@*":
   version "0.0.39"
@@ -9408,7 +9413,7 @@ typescript@3.6.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
   integrity sha512-unoCll1+l+YK4i4F8f22TaNVPRHcD9PA3yCuZ8g5e0qGqlVlJ/8FSateOLLSagn+Yg5+ZwuPkL8LFUc0Jcvksg==
 
-typescript@3.7.2:
+typescript@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.2.tgz#27e489b95fa5909445e9fef5ee48d81697ad18fb"
   integrity sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==

@@ -6,41 +6,41 @@ import {
   Output,
   Input,
   OnDestroy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
 } from '@angular/core';
 import {
   FormGroup,
   FormArray,
   FormBuilder,
   Validators,
-  FormControl
+  FormControl,
 } from '@angular/forms';
 import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
 import { ErrorStateMatcher } from '@angular/material/core';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as editor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-portfolio',
   templateUrl: './add-portfolio.component.html',
   styleUrls: ['./add-portfolio.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddPortfolioComponent implements OnInit, OnDestroy {
   addPortfolioForm: FormGroup;
   tags: FormArray;
   subscription: Subscription;
   matcher: ErrorStateMatcher = new FormErrorStateMatcher();
-  data = '<p> Hello, world!</p>';
-  editor = ClassicEditor;
+  editorData = '<p> Hello, world!</p>';
+  editor = editor;
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   @Input() success: Observable<boolean>;
   @Input() portfolio: IPortfolio;
   constructor(
     private formBuilder: FormBuilder,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -58,22 +58,21 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         name: new FormControl(this.portfolio.name, Validators.required),
         description: new FormControl(
           this.portfolio.description,
-          Validators.required
+          Validators.required,
         ),
         externalLink: new FormControl(
-          this.portfolio.externalLink ? this.portfolio.externalLink : null
+          this.portfolio.externalLink ? this.portfolio.externalLink : null,
         ),
         link: new FormControl(this.portfolio.link, Validators.required),
         image: new FormControl(this.portfolio.image, Validators.required),
         tags: this.formBuilder.array([]),
-        createdAt: this.portfolio.createdAt
+        createdAt: this.portfolio.createdAt,
+        content: new FormControl(this.portfolio?.content ?? this.editorData),
       });
-
       this.portfolio.tags.forEach((el: string) => {
         this.addTag(el);
       });
     } else {
-      console.log('BUILDING FORM from scratch');
       this.addPortfolioForm = this.formBuilder.group({
         name: new FormControl('', Validators.required),
         description: new FormControl('', Validators.required),
@@ -81,7 +80,8 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         externalLink: new FormControl(null),
         image: new FormControl('', Validators.required),
         tags: this.formBuilder.array([this.createTag()]),
-        createdAt: new FormControl(new Date(Date.now()))
+        createdAt: new FormControl(new Date(Date.now())),
+        content: new FormControl(this.editorData),
       });
     }
 

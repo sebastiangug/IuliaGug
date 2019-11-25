@@ -5,6 +5,7 @@ export interface IPortfolio {
   externalLink?: string;
   image: string;
   tags: string[];
+  content?: string;
   id: string;
   createdAt: string;
 }
