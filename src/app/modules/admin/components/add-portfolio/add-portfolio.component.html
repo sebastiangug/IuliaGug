@@ -6,7 +6,7 @@
   (ngSubmit)="submit()"
 >
   <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
-    <mat-form-field>
+    <mat-form-field fxFlex="50">
       <input
         [errorStateMatcher]="matcher"
         formControlName="name"
@@ -15,7 +15,7 @@
         type="text"
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field fxFlex="50">
       <input
         [errorStateMatcher]="matcher"
         formControlName="link"
@@ -26,7 +26,7 @@
     </mat-form-field>
   </div>
   <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
-    <mat-form-field>
+    <mat-form-field fxFlex="50">
       <input
         [errorStateMatcher]="matcher"
         formControlName="externalLink"
@@ -35,7 +35,7 @@
         type="text"
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field fxFlex="50">
       <input
         [errorStateMatcher]="matcher"
         formControlName="image"
@@ -76,7 +76,7 @@
       fxLayoutAlign="center center"
       fxLayoutGap="10px"
     >
-      <mat-form-field fxFlex="80">
+      <mat-form-field fxFlex="95">
         <input
           matInput
           [errorStateMatcher]="matcher"
@@ -114,8 +114,8 @@
   </div>
 </form>
 
-<ckeditor
+<!-- <ckeditor
   style="min-height: 500px!important;"
   [editor]="editor"
   [data]="data"
-></ckeditor>
+></ckeditor> -->
