@@ -98,7 +98,11 @@
   </div>
 
   <div fxLayout="column" fxLayoutAlign="center center">
-    <ckeditor [editor]="editor" [data]="editorData"></ckeditor>
+    <ckeditor
+      [editor]="editor"
+      [data]="addPortfolioForm.get('content').value"
+      (change)="textEditorChange($event)"
+    ></ckeditor>
   </div>
 
   <div fxLayoutAlign="center center">

@@ -19,7 +19,7 @@ import { IPortfolio } from '../../../../../models/portfolio.model';
 import { Observable, Subscription } from 'rxjs';
 import { FormErrorStateMatcher } from '../../../../../util/error-matcher';
 import { ErrorStateMatcher } from '@angular/material/core';
-import * as editor from '@ckeditor/ckeditor5-build-classic';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-portfolio',
@@ -33,7 +33,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   matcher: ErrorStateMatcher = new FormErrorStateMatcher();
   editorData = '<p> Hello, world!</p>';
-  editor = editor;
+  editor = ClassicEditor;
 
   @Output() submitPortfolio: EventEmitter<IPortfolio> = new EventEmitter();
   @Input() success: Observable<boolean>;
@@ -67,7 +67,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         image: new FormControl(this.portfolio.image, Validators.required),
         tags: this.formBuilder.array([]),
         createdAt: this.portfolio.createdAt,
-        content: new FormControl(this.portfolio?.content ?? this.editorData),
+        content: new FormControl(this.portfolio?.content ?? ''),
       });
       this.portfolio.tags.forEach((el: string) => {
         this.addTag(el);
@@ -81,7 +81,7 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
         image: new FormControl('', Validators.required),
         tags: this.formBuilder.array([this.createTag()]),
         createdAt: new FormControl(new Date(Date.now())),
-        content: new FormControl(this.editorData),
+        content: new FormControl(''),
       });
     }
 
@@ -112,5 +112,9 @@ export class AddPortfolioComponent implements OnInit, OnDestroy {
 
   trackByFn(index: any, item: any) {
     return index;
+  }
+
+  textEditorChange({ editor }) {
+    this.addPortfolioForm.get('content').setValue(editor.getData());
   }
 }
