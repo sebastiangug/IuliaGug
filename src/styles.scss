@@ -1,3 +1,25 @@
+// GLOBAL BREAKING POINTS
+
+// Global breakpoint between mobile, desktop
+@media only screen and (max-width: 959px) {
+  app-nav-desktop {
+    display: none;
+  }
+}
+@media only screen and (min-width: 960px) {
+  app-nav-mobile {
+    display: none;
+  }
+}
+
+app-nav-mobile {
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
