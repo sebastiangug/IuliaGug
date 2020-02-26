@@ -1,0 +1,17 @@
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 65vh;
+}
+
+:host ::ng-deep .ck.ck-editor {
+  @media only screen and (max-width: 959px) {
+    max-width: 96vw;
+    min-width: 60vw;
+    width: 96vw;
+  }
+
+  @media only screen and (min-width: 960px) {
+    max-width: 96vw;
+    min-width: 60vw;
+    width: 60vw;
+  }
+}

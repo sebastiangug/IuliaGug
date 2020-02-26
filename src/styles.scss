@@ -57,10 +57,20 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+// Global breakpoint between mobile, desktop
+
 main {
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: $navHeight;
+  @media only screen and (max-width: 959px) {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: $navHeight;
+  }
+
+  @media only screen and (min-width: 960px) {
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: $navHeight;
+  }
 }
 
 app-nav-desktop {
@@ -100,11 +110,18 @@ snack-bar-container {
 }
 
 // ADMIN STUFF
-
-app-add-skill {
-  max-width: 600px;
-}
-
+app-add-skill,
+app-add-portfolio,
+app-edit-portfolio,
 app-edit-skill {
-  max-width: 800px;
+  width: 100%;
+  @media only screen and (max-width: 959px) {
+    max-width: 600px;
+    min-width: 350px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    max-width: 800px;
+    min-width: 500px;
+  }
 }
