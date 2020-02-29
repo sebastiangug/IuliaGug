@@ -24,6 +24,7 @@ import { DevComponent } from './components/dev/dev.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TagComponent } from './pages/tag/tag.component';
 import { SkillDetailsComponent } from './components/skill-details/skill-details.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { SkillDetailsComponent } from './components/skill-details/skill-details.
     DevComponent,
     TagComponent,
     SkillDetailsComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
