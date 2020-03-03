@@ -1,0 +1,27 @@
+.navigation {
+  background: #110f1a;
+  display: none;
+  position: fixed;
+  transition: 200ms all;
+  @media only screen and (max-width: 959px) {
+    display: flex;
+    &.mobile {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  }
+  @media only screen and (min-width: 960px) {
+    display: flex;
+    &.desktop {
+      width: 5rem;
+      height: 100vh;
+    }
+  }
+
+  .routes {
+    color: #1ae95e;
+    fill: linear-gradient(45deg, #1ae95e, #23cdaf);
+    //  background: none;
+  }
+}
