@@ -1,51 +1,24 @@
-<div
-  class="navigation desktop"
-  fxLayoutAlign="space-between center"
-  fxLayout="column"
->
-  <div class="routes" fxLayout="column">
-    <div class="item">
-      Portfolio
-    </div>
-
-    <div class="item">
-      Skills
-    </div>
-
-    <div class="item">
-      About
-    </div>
-
-    <div class="item">
-      Resume
-    </div>
-  </div>
-</div>
-<!-- 
-<div class="navigation mobile">
-  <div class="item">
-    Portfolio
-  </div>
-
-  <div class="item">
-    Skills
-  </div>
-
-  <div class="item">
-    About
-  </div>
-
-  <div class="item">
-    Resume
-  </div>
-</div> -->
-
-<div fxFill fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="3drem">
+<!-- <div fxFill fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="3drem">
   <icon name="about" size="7rem" color="#1ae95e"></icon>
+  <icon name="layers" color="#1ae95e" size="7rem" color="#1ae95e"></icon>
   <icon name="dashboard" size="7rem" color="#1ae95e"></icon>
   <icon name="binary" size="7rem" color="#1ae95e"></icon>
   <icon name="resume" size="7rem" color="#1ae95e"></icon>
   <icon name="keyboard" size="7rem" color="#1ae95e"></icon>
-  <icon name="files" size="7rem" color="#1ae95e"></icon>
+  <icon name="layers" color="#1ae95e" size="7rem" color="#1ae95e"></icon>
   <icon name="file" size="7rem" color="#1ae95e"></icon>
+</div> -->
+
+<div class="navbar">
+  <ul
+    class="nav-items"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="0.5rem"
+  >
+    <div class="item" routerLink="portfolio">
+      <icon name="resume" color="#1ae95e" size="3rem"></icon>
+      <div class="text">Resume</div>
+    </div>
+  </ul>
 </div>
