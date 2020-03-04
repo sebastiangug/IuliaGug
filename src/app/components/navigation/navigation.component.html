@@ -11,14 +11,22 @@
 
 <div class="navbar">
   <ul
-    class="nav-items"
+    class="items"
     fxLayout="column"
     fxLayoutAlign="center center"
     fxLayoutGap="0.5rem"
   >
-    <div class="item" routerLink="portfolio">
-      <icon name="resume" color="#1ae95e" size="3rem"></icon>
-      <div class="text">Resume</div>
+    <div
+      class="item"
+      routerLink="portfolio"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      fxLayoutGap="0.5rem"
+    >
+      <div class="icon">
+        <icon name="about" color="#1ae95e" size="3rem"></icon>
+      </div>
+      <div class="text">About</div>
     </div>
   </ul>
 </div>

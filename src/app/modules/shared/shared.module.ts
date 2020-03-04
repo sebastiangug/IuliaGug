@@ -34,6 +34,7 @@ import { IconDefinitionsComponent } from './components/icon-definitions/icon-def
 @NgModule({
   exports: [
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -65,8 +66,8 @@ import { IconDefinitionsComponent } from './components/icon-definitions/icon-def
     MatDatepickerModule,
     MatNativeDateModule,
     IconComponent,
-    IconDefinitionsComponent
+    IconDefinitionsComponent,
   ],
-  declarations: [IconComponent, IconDefinitionsComponent]
+  declarations: [IconComponent, IconDefinitionsComponent],
 })
 export class SharedModule {}

@@ -14,7 +14,6 @@ import { SkillDetailsComponent } from '../../components/skill-details/skill-deta
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -39,7 +38,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     CommonModule,
     AppRoutingModule,
-    FlexLayoutModule,
     AngularFireModule.initializeApp(
       JSON.parse(localStorage.getItem('firebase')),
     ),

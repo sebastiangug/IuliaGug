@@ -11,4 +11,39 @@
     width: 12rem;
     transition: ease-in-out 200ms all;
   }
+
+  .items {
+    margin: 0;
+    padding: 0;
+  }
+
+  .item {
+    filter: grayscale(100%), opacity(0.7);
+
+    left: 1rem;
+    transition: ease-in-out 200ms all;
+    &:hover {
+      filter: grayscale(0%), opacity(1);
+      .text {
+        display: block;
+      }
+    }
+
+    .text {
+      font-weight: 500;
+      font-size: 1.5rem;
+      display: none;
+      filter: grayscale(100%), opacity(0.7);
+      color: $accent;
+      transition: ease-in-out 200ms all;
+      &:hover {
+        filter: grayscale(0), opacity(1);
+      }
+    }
+
+    .icon {
+      height: 5rem;
+      margin-top: 1rem;
+    }
+  }
 }
