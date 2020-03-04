@@ -13,16 +13,7 @@ body::-webkit-scrollbar {
   width: 0.25rem !important;
 }
 
-body::-webkit-scrollbar-track {
-  background: #06050a !important;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #1ae95e !important;
-}
-
 :root {
-  scrollbar-color: #1ae95e #06050a !important;
   scrollbar-width: thin !important;
 }
 

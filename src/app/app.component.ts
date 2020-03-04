@@ -8,20 +8,20 @@ import { switchMap, take } from 'rxjs/operators';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   admin: Observable<boolean>;
 
-  constructor(public auth: AuthService, public router: Router) {
-    this.admin = this.auth.user.pipe(
-      switchMap((user: IUser) => {
-        if (user && user.uid === 'HRyZ80lsmoaf6GwSPvmUiVR15Wo1') {
-          return of(true);
-        } else {
-          return of(false);
-        }
-      })
-    );
-  }
+  // constructor(public auth: AuthService, public router: Router) {
+  //   this.admin = this.auth.user.pipe(
+  //     switchMap((user: IUser) => {
+  //       if (user && user.uid === 'HRyZ80lsmoaf6GwSPvmUiVR15Wo1') {
+  //         return of(true);
+  //       } else {
+  //         return of(false);
+  //       }
+  //     })
+  //   );
+  // }
 }

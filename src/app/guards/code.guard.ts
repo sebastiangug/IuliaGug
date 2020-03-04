@@ -7,6 +7,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -14,6 +15,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CodeGuard implements CanActivate, CanLoad {
+  constructor(private router: Router) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
@@ -22,12 +25,20 @@ export class CodeGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return JSON.parse(localStorage.getItem('picklerick'));
+    const code = JSON.parse(localStorage.getItem('picklerick'));
+    if (!code) {
+      this.router.navigate(['code']);
+    }
+    return code;
   }
   canLoad(
     route: Route,
     segments: UrlSegment[],
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return JSON.parse(localStorage.getItem('picklerick'));
+    const code = JSON.parse(localStorage.getItem('picklerick'));
+    if (!code) {
+      this.router.navigate(['code']);
+    }
+    return code;
   }
 }

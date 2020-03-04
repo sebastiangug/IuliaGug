@@ -11,39 +11,41 @@ import { LoginComponent } from './pages/login/login.component';
 import { TagComponent } from './pages/tag/tag.component';
 
 const routes: Routes = [
-  { path: 'skills', component: SkillsComponent, pathMatch: 'full' },
-  { path: 'portfolio', component: PortfolioComponent, pathMatch: 'full' },
   {
-    path: 'about',
-    component: AboutComponent,
-    pathMatch: 'full'
+    path: 'public',
+    loadChildren: () =>
+      import('./modules/main/main.module').then(m => m.MainModule),
   },
-  {
-    path: 'contact',
-    component: ContactComponent,
-    pathMatch: 'full'
-  },
+  // { path: 'skills', component: SkillsComponent, pathMatch: 'full' },
+  // { path: 'portfolio', component: PortfolioComponent, pathMatch: 'full' },
+  // {
+  //   path: 'about',
+  //   component: AboutComponent,
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'contact',
+  //   component: ContactComponent,
+  //   pathMatch: 'full',
+  // },
   {
     path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
-    canLoad: [AdminGuard]
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AdminGuard],
   },
-  {
-    path: 'tag/:tag',
-    component: TagComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    pathMatch: 'full'
-  },
+  // {
+  //   path: 'tag/:tag',
+  //   component: TagComponent,
+  // },
+
   { path: '404', component: NotFoundComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', redirectTo: '404' }
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,11 +1,6 @@
-<navigation></navigation>
-<!-- <app-nav-mobile></app-nav-mobile>
-<app-nav-desktop [admin]="admin | async"> </app-nav-desktop> -->
-
 <main>
-  <main fxLayout="column" fxLayoutAlign="center center">
-    <router-outlet></router-outlet>
-  </main>
-
-  <icon-definitions [hidden]="true"></icon-definitions>
+  <navigation></navigation>
+  <router-outlet></router-outlet>
 </main>
+
+<icon-definitions [hidden]="true"></icon-definitions>
