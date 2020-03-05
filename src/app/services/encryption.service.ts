@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
-import * as crypto from 'crypto-js';
+import * as cryptojs from 'crypto-js';
+import { NotifyService } from '../modules/admin/services/notify.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EncryptionService {
-  private _key: string;
+  private tempKey = 'picklerick';
+  private tempKeyUrf = cryptojs.enc.Utf8.parse(this.tempKey);
+  private tempIv = cryptojs.enc.Base64.parse(this.tempKey);
 
-  private firebaseConfig = {
+  private _key: string;
+  private _testValue =
+    'a javascript app is like an onion, the more layers you peel back, the more you want to cry';
+
+  private _encryptedConfig: string;
+  private config = {
     apiKey: 'AIzaSyCyLhgPblMdtPD_4Iu7xoCdshvSTEcHYXE',
     authDomain: 'sebastiangug-com.firebaseapp.com',
     databaseURL: 'https://sebastiangug-com.firebaseio.com',
@@ -19,12 +27,14 @@ export class EncryptionService {
       'a javascript app is like an onion, the more layers you peel back, the more you want to cry',
   };
 
-  constructor() {
-    console.log('ENCRYPTED CONFIG');
-
-    console.log(
-      crypto.AES.encrypt(JSON.stringify(this.firebaseConfig), 'picklerick'),
-    );
+  constructor(private notify: NotifyService) {
+    const encrypted = cryptojs.AES.encrypt(
+      JSON.stringify(this.config),
+      this.tempKeyUrf,
+      { iv: this.tempIv },
+    ).toString();
+    localStorage.setItem('encrypted-config', encrypted);
+    this._encryptedConfig = encrypted;
   }
 
   public setKey(key: string): void {
@@ -37,6 +47,16 @@ export class EncryptionService {
 
   public testKey(key: string): boolean {
     return true;
+  }
+
+  public attemptAccess(code: string) {
+    const decoded = cryptojs.AES.decrypt(
+      this._encryptedConfig,
+      this.tempKeyUrf,
+      { iv: this.tempIv },
+    );
+
+    console.log(cryptojs.enc.Utf8.stringify(decoded));
   }
 
   public getFirebaseConfig() {}
