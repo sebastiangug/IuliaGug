@@ -45,14 +45,22 @@
   &:hover {
     transition: ease 400ms all;
     background: #2e187c;
-    .access-icon {
-      transform: rotate(0deg);
-      transition: ease 400ms all;
-    }
   }
 }
 
-.access-icon {
-  transform: rotate(180deg);
-  transition: ease 400ms all;
+// TRUE ON DESKTOP
+@media only screen and (min-width: 960px) {
+  .access-icon {
+    transform: rotate(180deg);
+    transition: ease 400ms all;
+  }
+
+  .access-button {
+    &:hover {
+      .access-icon {
+        transform: rotate(0deg);
+        transition: ease 400ms all;
+      }
+    }
+  }
 }
