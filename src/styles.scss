@@ -179,8 +179,8 @@ $light-bg-darker-10: darken($light-background, 10%);
 $light-bg-darker-20: darken($light-background, 20%);
 $light-bg-darker-30: darken($light-background, 30%);
 $light-bg-lighter-5: lighten($light-background, 5%);
-$dark-bg-alpha-4: rgba(#06050a, 0.04);
-$dark-bg-alpha-12: rgba(#06050a, 0.12);
+$dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
+$dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
 
 $mat-light-theme-background: (
   background: $light-background,
@@ -200,7 +200,7 @@ $mat-light-theme-background: (
 );
 
 // Dark bg
-$dark-background: #06050a;
+$dark-background: #2c2c2c;
 $dark-bg-lighter-5: lighten($dark-background, 5%);
 $dark-bg-lighter-10: lighten($dark-background, 10%);
 $dark-bg-lighter-20: lighten($dark-background, 20%);
@@ -232,20 +232,19 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  font-family: 'Karla';
-  --primary-color: #020c27;
-  --primary-lighter-color: #bfb4c4;
-  --primary-darker-color: #190324;
+  --primary-color: #221043;
+  --primary-lighter-color: #bdb7c7;
+  --primary-darker-color: #14092c;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #020c27,
-  lighter: #bfb4c4,
-  darker: #190324,
-  200: #020c27,
+  main: #221043,
+  lighter: #bdb7c7,
+  darker: #14092c,
+  200: #221043,
   // For slide toggle,
     contrast:
     (
@@ -257,19 +256,19 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #1ae95e;
-  --accent-lighter-color: #baf8cf;
-  --accent-darker-color: #0fdf42;
+  --accent-color: #1ae98f;
+  --accent-lighter-color: #baf8dd;
+  --accent-darker-color: #0fdf72;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 
 $mat-accent: (
-  main: #1ae95e,
-  lighter: #baf8cf,
-  darker: #0fdf42,
-  200: #1ae95e,
+  main: #1ae98f,
+  lighter: #baf8dd,
+  darker: #0fdf72,
+  200: #1ae98f,
   // For slide toggle,
     contrast:
     (
@@ -281,19 +280,19 @@ $mat-accent: (
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 body {
-  --warn-color: #ff0000;
-  --warn-lighter-color: #ffb3b3;
-  --warn-darker-color: #ff0000;
+  --warn-color: #f1073f;
+  --warn-lighter-color: #fbb5c5;
+  --warn-darker-color: #eb0429;
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
 }
 
 $mat-warn: (
-  main: #ff0000,
-  lighter: #ffb3b3,
-  darker: #ff0000,
-  200: #ff0000,
+  main: #f1073f,
+  lighter: #fbb5c5,
+  darker: #eb0429,
+  200: #f1073f,
   // For slide toggle,
     contrast:
     (
@@ -304,8 +303,8 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 // Theme Init
 @include angular-material-theme($theme);

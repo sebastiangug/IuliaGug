@@ -1,1 +1,25 @@
-<p>code works!</p>
+<div class="overlay-container">
+  <div class="code-input">
+    <mat-form-field>
+      <input #codeInput matInput placeholder="code" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button
+      class="access-button"
+      mat-flat-button
+      color="primary"
+      (click)="accessMain(codeInput.value)"
+    >
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.3rem">
+        <div>Access</div>
+        <div class="access-icon">
+          <icon name="arrow-0" color="white" size="1rem"> </icon>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="overlay-background"></div>

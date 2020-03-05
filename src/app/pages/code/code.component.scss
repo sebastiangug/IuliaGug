@@ -1,0 +1,58 @@
+@import '../../../global';
+
+.overlay-container {
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overlay-background {
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: black;
+  background: url('../../../assets/backgrounds/02.jpg');
+  background-position: center;
+  filter: blur(3px);
+}
+
+.code-input {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+
+.access-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 0;
+  padding: 0.7rem;
+  &:hover {
+    transition: ease 400ms all;
+    background: #2e187c;
+    .access-icon {
+      transform: rotate(0deg);
+      transition: ease 400ms all;
+    }
+  }
+}
+
+.access-icon {
+  transform: rotate(180deg);
+  transition: ease 400ms all;
+}
