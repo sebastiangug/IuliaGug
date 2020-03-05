@@ -1,49 +1,89 @@
 @import '../../../global';
 
-.navbar {
+// WHOLE BAR
+.navigation-bar-container {
   width: 5rem;
   height: 100vh;
   position: fixed;
   background: $primary;
-  transition: ease-in-out 200ms all;
+  transition: ease 400ms all;
 
   &:hover {
     width: 12rem;
-    transition: ease-in-out 200ms all;
   }
+}
 
-  .items {
-    margin: 0;
-    padding: 0;
-  }
+// JUST THE ITEMS ZONE
+.navigation-items-container {
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &:hover {
+    // TEXT ON HOVER
+    transition: ease 400ms all;
+    .navigation-text {
+      transition: 400ms ease all;
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+      width: auto;
+      margin-left: 1rem;
+    }
 
-  .item {
-    filter: grayscale(100%), opacity(0.7);
-
-    left: 1rem;
-    transition: ease-in-out 200ms all;
-    &:hover {
-      filter: grayscale(0%), opacity(1);
-      .text {
-        display: block;
+    // ARROW ICON AT THE TOP
+    .navigation-item:first-child {
+      .navigation-icon {
+        filter: grayscale(100%);
+        transition: ease 400ms all;
+        transform: rotate(180deg);
       }
     }
-
-    .text {
-      font-weight: 500;
-      font-size: 1.5rem;
-      display: none;
-      filter: grayscale(100%), opacity(0.7);
-      color: $accent;
-      transition: ease-in-out 200ms all;
-      &:hover {
-        filter: grayscale(0), opacity(1);
-      }
-    }
-
-    .icon {
-      height: 5rem;
-      margin-top: 1rem;
-    }
   }
+}
+
+// SINGLE ITEM
+.navigation-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  filter: grayscale(100%);
+  cursor: pointer;
+  width: 100%;
+  transition: ease 400ms all;
+
+  &:hover {
+    filter: none !important;
+    background: $secondary;
+  }
+
+  &:last-child {
+    margin-top: auto;
+  }
+}
+
+// ICON INSIDE ITEM
+.navigation-icon {
+  margin: 0 1.5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease 400ms all;
+}
+
+// TEXT INSIDE ITEM
+.navigation-text {
+  font-weight: 500;
+  font-size: 1rem;
+  visibility: hidden;
+  color: $accent;
+  margin: 0;
+  transition: ease 400ms all;
+  opacity: 0;
+  height: 0;
+  width: 0;
 }
