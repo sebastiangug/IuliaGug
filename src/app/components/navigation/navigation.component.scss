@@ -28,8 +28,6 @@
       transition: 400ms ease all;
       visibility: visible;
       opacity: 1;
-      height: auto;
-      width: auto;
       margin-left: 1rem;
     }
 
@@ -39,6 +37,7 @@
         filter: grayscale(100%);
         transition: ease 400ms all;
         transform: rotate(180deg);
+        margin-left: auto;
       }
     }
   }
@@ -84,6 +83,4 @@
   margin: 0;
   transition: ease 400ms all;
   opacity: 0;
-  height: 0;
-  width: 0;
 }
