@@ -1,11 +1,34 @@
-// FIRESHIP GLOBAL BODY STUFF STUFF
-body {
-  margin: 0;
-  padding: 0;
+// MEDIA QUERIES FOR MOBILE/DESKTOP NAV CONTAINERS
+// TRUE ON MOBILE
+@media only screen and (max-width: 959px) {
+  .navigation-bar-container {
+    display: none;
+  }
+  body {
+    margin: 0;
+    padding: 0;
 
-  main {
-    margin-left: 5rem;
-    padding: 1rem;
+    main {
+      margin-bottom: 5rem;
+      padding: 1rem;
+    }
+  }
+}
+
+// TRUE ON DESKTOP
+@media only screen and (min-width: 960px) {
+  body {
+    margin: 0;
+    padding: 0;
+
+    main {
+      margin-left: 5rem;
+      padding: 1rem;
+    }
+  }
+
+  .mobile-navigation-bar-container {
+    display: none;
   }
 }
 
