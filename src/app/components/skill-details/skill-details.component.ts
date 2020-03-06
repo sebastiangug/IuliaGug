@@ -13,4 +13,6 @@ export class SkillDetailsComponent {
     @Inject(MAT_DIALOG_DATA)
     public data: ISkill,
   ) {}
+
+  public formatDate(val: number) {}
 }

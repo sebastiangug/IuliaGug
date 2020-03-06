@@ -8,7 +8,7 @@
   position: fixed;
   background: $primary;
   transition: ease 400ms all;
-
+  z-index: 10;
   &:hover {
     width: 12rem;
   }
@@ -126,6 +126,7 @@
   width: 100vw;
   position: fixed;
   bottom: 0;
+  z-index: 10;
 }
 
 .mobile-navigation-items-container {

@@ -10,12 +10,17 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { EncryptionService } from '../services/encryption.service';
+import { take, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CodeGuard implements CanActivate, CanLoad {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private encryptionService: EncryptionService,
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -25,20 +30,26 @@ export class CodeGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const code = JSON.parse(localStorage.getItem('picklerick'));
-    if (!code) {
-      this.router.navigate(['code']);
-    }
-    return code;
+    return this.encryptionService.codeProvided.pipe(
+      take(1),
+      tap(code => {
+        if (!code) {
+          this.router.navigate(['code']);
+        }
+      }),
+    );
   }
   canLoad(
     route: Route,
     segments: UrlSegment[],
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const code = JSON.parse(localStorage.getItem('picklerick'));
-    if (!code) {
-      this.router.navigate(['code']);
-    }
-    return code;
+    return this.encryptionService.codeProvided.pipe(
+      take(1),
+      tap(code => {
+        if (!code) {
+          this.router.navigate(['code']);
+        }
+      }),
+    );
   }
 }

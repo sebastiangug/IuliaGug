@@ -1,63 +1,67 @@
 import { Injectable } from '@angular/core';
 import * as cryptojs from 'crypto-js';
 import { NotifyService } from '../modules/admin/services/notify.service';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EncryptionService {
-  private tempKey = 'picklerick';
-  private tempKeyUrf = cryptojs.enc.Utf8.parse(this.tempKey);
-  private tempIv = cryptojs.enc.Base64.parse(this.tempKey);
+  // configuration
+  private _keySize = 256;
+  private _iterations = 100;
+  private _encrypted =
+    '55dfa261eb7d2c652311bb2d5064530154a99e14498c1338c9e057391f5095598gOm/IpJzK9u/9OFx1eOGF6DMgM0NvwYOu7WVaJKthokkGbyLM6AsWmh/WInG/Xnr1gmyh6/dJZfGNO/U/479nMp2GW48WTYI/vQOyCyvSLDXUEX0nf6wlLnUkQaRBWwqr9+5VEJmcnUGlLG3wDQM/HDR+XOuAQISUiVlprrOcY6jyMPkn2op/yhrb85Gn9OpXOiGiYoNbfS/STHFf8JEcG9U9dGDOujWbRKpqkarKbk74nOTM8vWbPQY2rQiIbVnBKZ6fDlRc3LlSHSu2GFjnSILqipVCKsq4eV6Twx8WJSRwkKCrtpgOBiNInr9JjbzV3o3NPITs5fppwOQa6JQT49W2ccAM9zz1gmj2brIF7qkqmxivkXL2uQTW8cVi9pHcqhjNNVCRIBXN7kYTAslnyLsmb0rL6RR5WhyxUwzxlPSZ9pCjP1W7/wOaLVokeSnaNZS8ncRdQtWTH45tD0wkA/i4gNvCrqsquQELcjS4iJv4RKbVqQfrUftohtgyHmDV4N3oxIUgpRqZxb+9/5V19cydb1HCu6emJbud7p/e0hAijKS5UPCUtv3HlrRBlw';
+  public codeProvided: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  private _key: string;
-  private _testValue =
-    'a javascript app is like an onion, the more layers you peel back, the more you want to cry';
+  private _decrypt(transitmessage, pass) {
+    const salt = cryptojs.enc.Hex.parse(transitmessage.substr(0, 32));
+    const iv = cryptojs.enc.Hex.parse(transitmessage.substr(32, 32));
+    const encrypted = transitmessage.substring(64);
 
-  private _encryptedConfig: string;
-  private config = {
-    apiKey: 'AIzaSyCyLhgPblMdtPD_4Iu7xoCdshvSTEcHYXE',
-    authDomain: 'sebastiangug-com.firebaseapp.com',
-    databaseURL: 'https://sebastiangug-com.firebaseio.com',
-    projectId: 'sebastiangug-com',
-    storageBucket: 'sebastiangug-com.appspot.com',
-    messagingSenderId: '1037120784741',
-    appId: '1:1037120784741:web:fa9a408c65421d34',
-    test:
-      'a javascript app is like an onion, the more layers you peel back, the more you want to cry',
-  };
+    const key = cryptojs.PBKDF2(pass, salt, {
+      keySize: this._keySize / 32,
+      iterations: this._iterations,
+    });
 
-  constructor(private notify: NotifyService) {
-    const encrypted = cryptojs.AES.encrypt(
-      JSON.stringify(this.config),
-      this.tempKeyUrf,
-      { iv: this.tempIv },
-    ).toString();
-    localStorage.setItem('encrypted-config', encrypted);
-    this._encryptedConfig = encrypted;
+    const decrypted = cryptojs.AES.decrypt(encrypted, key, {
+      iv: iv,
+      padding: cryptojs.pad.Pkcs7,
+      mode: cryptojs.mode.CBC,
+    });
+    return decrypted;
   }
 
-  public setKey(key: string): void {
-    this._key = key;
-  }
-
-  public removeKey(): void {
-    this._key = undefined;
-  }
-
-  public testKey(key: string): boolean {
-    return true;
+  constructor(private router: Router, private notify: NotifyService) {
+    const codeStatus = JSON.parse(localStorage.getItem('code'));
+    if (typeof codeStatus === 'boolean' && codeStatus === true) {
+      this.codeProvided.next(true);
+    }
   }
 
   public attemptAccess(code: string) {
-    const decoded = cryptojs.AES.decrypt(
-      this._encryptedConfig,
-      this.tempKeyUrf,
-      { iv: this.tempIv },
-    );
+    let decrypted: any;
 
-    console.log(cryptojs.enc.Utf8.stringify(decoded));
+    try {
+      decrypted = JSON.parse(
+        this._decrypt(this._encrypted, code).toString(cryptojs.enc.Utf8),
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    if (
+      decrypted?.test ===
+      'a javascript app is like an onion, the more layers you peel back, the more you want to cry'
+    ) {
+      localStorage.setItem('firebase-config', JSON.stringify(decrypted));
+      this.notify.success('THE CODE IS RIGHT!');
+      this.codeProvided.next(true);
+      localStorage.setItem('code', JSON.stringify(true));
+      this.router.navigate(['main/skills ']);
+    } else {
+      this.notify.error('wrong code');
+    }
   }
-
-  public getFirebaseConfig() {}
 }

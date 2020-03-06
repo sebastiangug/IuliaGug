@@ -11,13 +11,24 @@ import { WipOverlayComponent } from '../../components/wip-overlay/wip-overlay.co
 import { DevComponent } from '../../components/dev/dev.component';
 import { TagComponent } from '../../pages/tag/tag.component';
 import { SkillDetailsComponent } from '../../components/skill-details/skill-details.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
-import { AppRoutingModule } from '../../app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Route } from '@angular/router';
+
+const routes: Route[] = [
+  {
+    path: 'skills',
+    component: SkillsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    redirectTo: 'skills',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
   declarations: [
@@ -34,16 +45,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SkillDetailsComponent,
   ],
   imports: [
-    BrowserModule,
+    RouterModule.forChild(routes),
     SharedModule,
     CommonModule,
-    AppRoutingModule,
     AngularFireModule.initializeApp(
-      JSON.parse(localStorage.getItem('firebase')),
+      JSON.parse(localStorage.getItem('firebase-config')),
     ),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    BrowserAnimationsModule,
   ],
   providers: [],
   entryComponents: [SkillDetailsComponent],

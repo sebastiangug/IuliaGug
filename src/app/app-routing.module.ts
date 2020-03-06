@@ -7,7 +7,7 @@ import { CodeComponent } from './pages/code/code.component';
 
 const routes: Routes = [
   {
-    path: 'public',
+    path: 'main',
     loadChildren: () =>
       import('./modules/main/main.module').then(m => m.MainModule),
     canLoad: [CodeGuard],
@@ -23,7 +23,7 @@ const routes: Routes = [
       import('./modules/admin/admin.module').then(m => m.AdminModule),
     canLoad: [AdminGuard],
   },
-  { path: '404', component: NotFoundComponent },
+  { path: '404', component: NotFoundComponent, canActivate: [CodeGuard] },
   { path: '', component: CodeComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '404' },
 ];

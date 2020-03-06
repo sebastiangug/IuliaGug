@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:300,400,500');
+@import '~@angular/material/theming';
 // MEDIA QUERIES FOR MOBILE/DESKTOP NAV CONTAINERS
 // TRUE ON MOBILE
 @media only screen and (max-width: 959px) {
@@ -92,12 +94,15 @@ app-edit-skill {
 * https://materialtheme.arcsine.dev
 */
 
-@import '~@angular/material/theming';
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Karla:300,400,500');
+
+html,
+body {
+  font-family: 'Karla';
+}
 
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'Karla', -0.0134em),
