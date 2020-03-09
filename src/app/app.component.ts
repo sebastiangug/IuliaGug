@@ -1,8 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { AuthService, IUser } from './services/auth.service';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap, take } from 'rxjs/operators';
+import { EncryptionService } from './services/encryption.service';
 
 @Component({
   selector: 'app-root',
@@ -11,17 +8,5 @@ import { switchMap, take } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  admin: Observable<boolean>;
-
-  // constructor(public auth: AuthService, public router: Router) {
-  //   this.admin = this.auth.user.pipe(
-  //     switchMap((user: IUser) => {
-  //       if (user && user.uid === 'HRyZ80lsmoaf6GwSPvmUiVR15Wo1') {
-  //         return of(true);
-  //       } else {
-  //         return of(false);
-  //       }
-  //     })
-  //   );
-  // }
+  constructor(public encryptionService: EncryptionService) {}
 }

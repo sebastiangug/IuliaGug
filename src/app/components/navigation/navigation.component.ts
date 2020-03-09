@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { EncryptionService } from '../../services/encryption.service';
 
 @Component({
   selector: 'navigation',
@@ -6,4 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./navigation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+  constructor(public encryptionService: EncryptionService) {}
+}

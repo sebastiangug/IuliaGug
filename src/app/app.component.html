@@ -1,4 +1,4 @@
-<navigation></navigation>
+<navigation *ngIf="encryptionService.codeProvided | async"></navigation>
 <main>
   <router-outlet></router-outlet>
 </main>

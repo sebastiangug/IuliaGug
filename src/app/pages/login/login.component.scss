@@ -1,0 +1,14 @@
+.login-loader {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh !important;
+  .text {
+    margin: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}

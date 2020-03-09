@@ -37,11 +37,31 @@
       <div class="navigation-text">Resume</div>
     </div>
 
-    <div class="navigation-item" routerLink="main/login">
+    <div
+      class="navigation-item"
+      routerLink="admin"
+      *ngIf="encryptionService.isAdmin | async"
+    >
       <div class="navigation-icon">
-        <icon name="login" color="#1ae95e" size="2rem"></icon>
+        <icon name="admin" color="#1ae95e" size="2rem"></icon>
       </div>
-      <div class="navigation-text">Login</div>
+      <div class="navigation-text">Admin</div>
+    </div>
+
+    <div class="navigation-item" *ngIf="encryptionService.codeProvided | async">
+      <ng-template *ngIf="encryptionService.isAdmin | async; else signOut">
+        <div class="navigation-icon">
+          <icon name="login" color="#1ae95e" size="2rem"></icon>
+        </div>
+        <div class="navigation-text">Login</div>
+      </ng-template>
+
+      <ng-template #signOut>
+        <div class="navigation-icon">
+          <icon name="sign-out" color="#1ae95e" size="2rem"></icon>
+        </div>
+        <div class="navigation-text">Logout</div>
+      </ng-template>
     </div>
   </div>
 </div>

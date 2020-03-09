@@ -1,3 +1,9 @@
-<div fxLayout="row" fxLayoutAlign="center center">
-    <button mat-raised-button (click)="auth.googleSignin()">Sign in with Google</button>
+<div class="login-loader" fxFill>
+  <div class="text">
+    Processing auth changes
+  </div>
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
 </div>

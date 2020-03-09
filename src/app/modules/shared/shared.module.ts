@@ -30,6 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IconComponent } from './components/icon/icon.component';
 import { IconDefinitionsComponent } from './components/icon-definitions/icon-definitions.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   exports: [
@@ -50,6 +51,7 @@ import { IconDefinitionsComponent } from './components/icon-definitions/icon-def
     MatInputModule,
     MatFormFieldModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
     MatExpansionModule,
     MatCheckboxModule,
     MatChipsModule,

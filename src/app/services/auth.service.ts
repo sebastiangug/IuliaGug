@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestore,
-  AngularFirestoreDocument
+  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
+import { EncryptionService } from './encryption.service';
 
 export interface IUser {
   uid: string;
@@ -16,16 +17,15 @@ export interface IUser {
   displayName?: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
   user: Observable<IUser>;
 
   constructor(
     private router: Router,
     private fireAuth: AngularFireAuth,
-    private fireStore: AngularFirestore
+    private fireStore: AngularFirestore,
+    private encryptionService: EncryptionService,
   ) {
     this.user = this.fireAuth.authState.pipe(
       switchMap(user => {
@@ -34,7 +34,7 @@ export class AuthService {
         } else {
           return of(null);
         }
-      })
+      }),
     );
   }
 
@@ -42,25 +42,33 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.fireAuth.auth.signInWithPopup(provider);
     return this.updateUserData(credential.user).then(() => {
-      return this.router.navigate(['/admin']);
+      if (credential.user.uid === 'HRyZ80lsmoaf6GwSPvmUiVR15Wo1') {
+        localStorage.setItem('uid', credential.user.uid);
+        this.encryptionService.isAdmin.next(true);
+      }
+
+      return this.router.navigate(['main/admin']);
     });
   }
 
   async signOut() {
     return this.fireAuth.auth.signOut().then(() => {
-      return this.router.navigate(['/']);
+      localStorage.removeItem('code');
+      localStorage.removeItem('firebase-config');
+      this.router.navigate(['/']);
+      return window.location.reload();
     });
   }
 
   private updateUserData({ uid, email, displayName, photoURL }: IUser) {
     const userRef: AngularFirestoreDocument<IUser> = this.fireStore.doc(
-      'users/' + uid
+      'users/' + uid,
     );
     const data = {
       uid,
       email,
       displayName,
-      photoURL
+      photoURL,
     };
     return userRef.set(data, { merge: true });
   }

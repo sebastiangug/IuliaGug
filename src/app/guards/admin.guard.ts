@@ -6,21 +6,19 @@ import {
   UrlSegment,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree
+  UrlTree,
 } from '@angular/router';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthService, IUser } from '../services/auth.service';
-import { switchMap, catchError, take } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminGuard implements CanActivate, CanLoad {
   constructor(private auth: AuthService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
@@ -33,12 +31,12 @@ export class AdminGuard implements CanActivate, CanLoad {
         } else {
           return of(false);
         }
-      })
+      }),
     );
   }
   canLoad(
     route: Route,
-    segments: UrlSegment[]
+    segments: UrlSegment[],
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.auth.user.pipe(
       take(1),
@@ -48,7 +46,7 @@ export class AdminGuard implements CanActivate, CanLoad {
         } else {
           return of(false);
         }
-      })
+      }),
     );
   }
 }

@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import { SharedModule } from '../shared/shared.module';
+import { AuthService } from '../../services/auth.service';
+import { AdminGuard } from '../../guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     EditPortfolioComponent,
     AddSkillComponent,
     AddPortfolioComponent,
-    NavAdminComponent
+    NavAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -29,17 +31,18 @@ import { SharedModule } from '../shared/shared.module';
       {
         path: 'manage-skills',
         component: ManageSkillsComponent,
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
         // canActivate: [AdminGuard]
       },
       {
         path: 'manage-portfolio',
         component: ManagePortfolioComponent,
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
         // canActivate: [AdminGuard]
       },
-      { path: '', redirectTo: 'manage-skills', pathMatch: 'prefix' }
-    ])
-  ]
+      { path: '', redirectTo: 'manage-skills', pathMatch: 'prefix' },
+    ]),
+  ],
+  providers: [AuthService],
 })
 export class AdminModule {}

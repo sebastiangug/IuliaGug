@@ -17,15 +17,9 @@ const routes: Routes = [
     component: CodeComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'admin',
-    loadChildren: () =>
-      import('./modules/admin/admin.module').then(m => m.AdminModule),
-    canLoad: [AdminGuard],
-  },
   { path: '404', component: NotFoundComponent, canActivate: [CodeGuard] },
   { path: '', component: CodeComponent, pathMatch: 'full' },
-  { path: '**', redirectTo: '404' },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

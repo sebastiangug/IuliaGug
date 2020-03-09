@@ -7,7 +7,6 @@ import { ContactComponent } from '../../pages/contact/contact.component';
 import { AboutComponent } from '../../pages/about/about.component';
 import { SkillComponent } from '../../components/skill/skill.component';
 import { LoginComponent } from '../../pages/login/login.component';
-import { WipOverlayComponent } from '../../components/wip-overlay/wip-overlay.component';
 import { DevComponent } from '../../components/dev/dev.component';
 import { TagComponent } from '../../pages/tag/tag.component';
 import { SkillDetailsComponent } from '../../components/skill-details/skill-details.component';
@@ -16,16 +15,46 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterModule, Route } from '@angular/router';
+import { ResumeComponent } from '../../pages/resume/resume.component';
+import { HomeComponent } from '../../pages/home/home.component';
+import { AuthService } from '../../services/auth.service';
+import { AdminGuard } from '../../guards/admin.guard';
 
 const routes: Route[] = [
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('../../modules/admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AdminGuard],
+  },
   {
     path: 'skills',
     component: SkillsComponent,
     pathMatch: 'full',
   },
   {
+    path: 'portfolio',
+    component: PortfolioComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'resume',
+    component: ResumeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full',
+  },
+  {
     path: '',
-    redirectTo: 'skills',
+    component: HomeComponent,
     pathMatch: 'full',
   },
 ];
@@ -34,15 +63,16 @@ const routes: Route[] = [
   declarations: [
     PortfolioComponent,
     SkillsComponent,
+    HomeComponent,
     ContactComponent,
     AboutComponent,
     SkillComponent,
     PortfolioItemComponent,
     LoginComponent,
-    WipOverlayComponent,
     DevComponent,
     TagComponent,
     SkillDetailsComponent,
+    ResumeComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -54,7 +84,7 @@ const routes: Route[] = [
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService, AdminGuard],
   entryComponents: [SkillDetailsComponent],
 })
 export class MainModule {}

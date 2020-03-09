@@ -72,6 +72,9 @@ snack-bar-container {
   }
 }
 
+*:focus {
+  outline: 0;
+}
 // ADMIN STUFF
 app-add-skill,
 app-add-portfolio,

@@ -1,7 +1,20 @@
-<pre>
- {{ data | json }}
-</pre>
-
 <div class="skills-container">
-  <div>First used on {{ data.firstUsed | date: 'MMMM, y' }}</div>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+    <div class="name">{{ data.name }}</div>
+    <div class="icon">
+      <img
+        [src]="
+          'https://firebasestorage.googleapis.com/v0/b/sebastiangug-com.appspot.com/o/' +
+          data.image +
+          '?alt=media'
+        "
+        height="50px"
+      />
+    </div>
+  </div>
+  <div>
+    First used on
+    <span class="first-used"> {{ data.firstUsed | date: 'MMMM, y' }} </span>
+  </div>
+  <div class="description">{{ data.description }}</div>
 </div>
