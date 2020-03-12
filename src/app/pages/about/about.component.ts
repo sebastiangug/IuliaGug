@@ -7,5 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
-  summary = 'Self';
+  summary =
+    "I'm a self-taught software engineer with around 8 years of experience";
 }

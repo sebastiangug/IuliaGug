@@ -62,7 +62,7 @@ export class EncryptionService {
       'a javascript app is like an onion, the more layers you peel back, the more you want to cry'
     ) {
       localStorage.setItem('firebase-config', JSON.stringify(decrypted));
-      this.notify.success('That code is 👍, come on in!');
+      this.notify.success('That code is 👍 come on in!');
       this.codeProvided.next(true);
       localStorage.setItem('code', JSON.stringify(true));
       this.router.navigate(['main']).then(() => {});

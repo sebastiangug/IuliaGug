@@ -1,7 +1,13 @@
 <div class="overlay-container">
   <div class="code-input">
     <mat-form-field>
-      <input #codeInput matInput placeholder="code" />
+      <input
+        autocomplete="off"
+        #codeInput
+        matInput
+        placeholder="code"
+        (keyup.enter)="accessMain(codeInput.value)"
+      />
     </mat-form-field>
   </div>
 
