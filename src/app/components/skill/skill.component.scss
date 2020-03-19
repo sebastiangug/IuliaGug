@@ -1,14 +1,13 @@
 .container {
   min-width: 300px;
   width: 100%;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border-bottom: 0.3rem solid rgb(241, 63, 18);
   transition: 100ms all ease-in-out;
-  min-height: 120px;
+  min-height: 100px;
   &:hover {
     transition: 100ms all ease-in-out;
-    box-shadow: 7px 7px 14px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 12px 12px 18px 1px rgba(0, 0, 0, 0.2);
   }
 
   .name {
@@ -26,12 +25,11 @@
 
   .image {
     position: relative;
-    height: 127px;
+    height: 100px !important;
+    width: 100px !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    -webkit-clip-path: circle(97.8% at 99% 1%);
-    clip-path: circle(97.8% at 99% 1%);
   }
 
   .tag {

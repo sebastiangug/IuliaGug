@@ -102,6 +102,12 @@ app-edit-skill {
 
 // Fonts
 
+body {
+  background-image: url('src/assets/textures/webb.png') !important;
+  background-repeat: repeat;
+  background-color: white !important;
+}
+
 html,
 body {
   font-family: 'Karla';

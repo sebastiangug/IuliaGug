@@ -1,20 +1,56 @@
-<div class="about-container" fxLayoutGap="2rem">
-  <div class="meta-container">
-    <h1 class="title">About me</h1>
-
-    <div class="subtitle">
-      Lead Software Engineer
+<div class="section">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div class="image">
+      <img
+        height="150px"
+        src="https://firebasestorage.googleapis.com/v0/b/sebastiangug-com.appspot.com/o/about.png?alt=media"
+      />
     </div>
 
+    <h1 style="margin: 1rem;">Sebastian Gug</h1>
+  </div>
+</div>
+<div class="section" fxLayoutGap="2rem">
+  <div>
+    <div>
+      <span class="title">
+        Lead Software Engineer
+      </span>
+    </div>
     <div class="summary">
       {{ summary }}
     </div>
   </div>
 
-  <div class="image">
-    <img
-      height="150px"
-      src="https://firebasestorage.googleapis.com/v0/b/sebastiangug-com.appspot.com/o/about.png?alt=media"
-    />
+  <div class="section">
+    <span class="title">Work History</span>
+
+    <div class="job" *ngFor="let job of jobs">
+      <div class="employer">
+        {{ job.employer }}
+      </div>
+      <div class="role">
+        {{ job.role }}
+      </div>
+      <div class="date">
+        {{ job.date }}
+      </div>
+      <div class="description">
+        {{ job.description }}
+      </div>
+
+      <div class="responsibilities">
+        <span class="key" *ngFor="let key of job.keyResponsibilities">
+          {{ key }}</span
+        >
+      </div>
+
+      <div class="projects">
+        <div class="projects-title">Projects</div>
+        <span class="project" *ngFor="let project of job.projects">
+          {{ project }}
+        </span>
+      </div>
+    </div>
   </div>
 </div>
