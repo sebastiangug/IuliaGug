@@ -64,7 +64,7 @@ export class AboutComponent {
     },
     {
       employer: 'Costain - A14 Highway Construction',
-      date: 'January 2019 - Present',
+      date: 'February 2017 - January 2019',
       role: 'Full Stack Developer',
       description:
         'Initially hired by Costain on a Digital Media role although shortly after \
