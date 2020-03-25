@@ -57,7 +57,7 @@ const routes: Route[] = [
   },
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'about',
     pathMatch: 'full',
   },
 ];
