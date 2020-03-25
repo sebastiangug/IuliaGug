@@ -1,7 +1,62 @@
-<div class="grid-container">
-  <app-skill
-    class="grid-item"
-    *ngFor="let skill of skillDocs | async"
-    [skill]="skill"
-  ></app-skill>
+<!--  KRUGER EFFECTS -->
+
+<div class="section">
+  <div class="page-title">Skills</div>
+  <div class="description">
+    I personally appreciate this specific version of the Dunning-Kruger effect
+    chart. It provides great context when assessing the stage one is at when it
+    comes to his ability. With that in mind, I have added split my skills into
+    several categories.
+  </div>
+  <div class="kruger">
+    <img src="../../../assets/misc/kruger.png" width="550" />
+  </div>
+</div>
+
+<!-- CORE SKILLS -->
+<div class="section">
+  <span class="title">Core Skills</span>
+  <div>
+    These are my daily bread and butter with which I've been through all stages
+    of the Dunning-Kruger Effect.
+  </div>
+</div>
+<div class="miniskills-container">
+  <mini-skill
+    *ngFor="let skill of coreSkills"
+    [name]="skill.name"
+    [image]="skill.image"
+  ></mini-skill>
+</div>
+
+<!-- GROWING SKILLS -->
+<div class="section">
+  <span class="title">Growing Skills</span>
+  <div>
+    These are the things i'm making a major effort towards learnning and which
+    I'm constantly looking for opportunities to use in production.
+  </div>
+</div>
+<div class="miniskills-container">
+  <mini-skill
+    *ngFor="let skill of growingSkills"
+    [name]="skill.name"
+    [image]="skill.image"
+  ></mini-skill>
+</div>
+
+<!-- PAUSED SKILLS -->
+<div class="section">
+  <span class="title">Paused Skills</span>
+  <div>
+    These are skills that I have at some point used in production or
+    experimented with but for various reasons no longer actively use or learn.
+  </div>
+</div>
+<div class="miniskills-container">
+  <mini-skill
+    *ngFor="let skill of pausedSkills"
+    [name]="skill.name"
+    [image]="skill.image"
+  ></mini-skill>
 </div>

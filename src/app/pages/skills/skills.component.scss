@@ -1,12 +1,14 @@
-.grid-container {
+@import '../../../_global.scss';
+.miniskills-container {
   display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-auto-rows: minmax(50px, max-content);
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  align-items: center;
   padding: 0px;
   grid-column-gap: 5px;
 }
-.grid-item {
-  padding: 1.5rem;
+
+.kruger {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }

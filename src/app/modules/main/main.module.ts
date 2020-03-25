@@ -19,6 +19,9 @@ import { ResumeComponent } from '../../pages/resume/resume.component';
 import { HomeComponent } from '../../pages/home/home.component';
 import { AuthService } from '../../services/auth.service';
 import { AdminGuard } from '../../guards/admin.guard';
+import { MiniSkillComponent } from '../../components/mini-skill/mini-skill.component';
+import { FullImageComponent } from '../../components/full-image/full-image.component';
+import { ImageComponent } from '../../components/image/image.component';
 
 const routes: Route[] = [
   {
@@ -62,6 +65,7 @@ const routes: Route[] = [
 @NgModule({
   declarations: [
     PortfolioComponent,
+    MiniSkillComponent,
     SkillsComponent,
     HomeComponent,
     ContactComponent,
@@ -73,6 +77,8 @@ const routes: Route[] = [
     TagComponent,
     SkillDetailsComponent,
     ResumeComponent,
+    FullImageComponent,
+    ImageComponent,
   ],
   imports: [
     RouterModule.forChild(routes),

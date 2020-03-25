@@ -1,1 +1,33 @@
-<p>portfolio works!</p>
+<div class="section">
+  <div class="page-title">Portfolio</div>
+</div>
+
+<div class="section">
+  <div class="portfolio-container" *ngFor="let folio of portfolioItems">
+    <div class="title folio">
+      {{ folio.name }}
+    </div>
+
+    <div class="description">
+      {{ folio.description }}
+    </div>
+
+    <div class="title" *ngIf="folio?.skills?.length > 0">
+      Main Skills
+    </div>
+
+    <div class="miniskills-container">
+      <mini-skill
+        *ngFor="let skill of folio.skills"
+        [image]="skill.image"
+        [name]="skill.name"
+      ></mini-skill>
+    </div>
+    <div class="title" *ngIf="folio?.images?.length > 0">
+      Screenshots
+    </div>
+    <div class="images-container">
+      <image *ngFor="let image of folio.images" [path]="image"></image>
+    </div>
+  </div>
+</div>

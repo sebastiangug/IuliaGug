@@ -1,0 +1,98 @@
+@import '../../../global';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .title {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    background: $secondary;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .subtitle {
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+
+  .image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+}
+
+.job {
+  background: white;
+  padding: 2rem;
+  box-shadow: 1rem 1rem 1.5rem 0rem rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+
+  .employer {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+
+  .date {
+    margin: 1rem;
+    padding-left: 1rem;
+    border-left: 4px $warn solid;
+  }
+
+  .role {
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 1rem;
+    padding-left: 1rem;
+    border-left: 4px $accent solid;
+  }
+  .description {
+    margin-left: 1rem;
+  }
+
+  .responsibilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    .key {
+    }
+  }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-top: 1rem;
+
+    .project {
+      padding-left: 1rem;
+      border-left: 4px solid $primary;
+      margin-bottom: 0.3rem;
+    }
+
+    .projects-title {
+      margin: 1rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}

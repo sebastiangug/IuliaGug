@@ -1,1 +1,35 @@
-<p>resume works!</p>
+<!-- WORK HISTORY -->
+<div class="section">
+  <div class="page-title">Resume</div>
+</div>
+
+<div class="section">
+  <span class="title">Work History</span>
+  <div class="job" *ngFor="let job of jobs">
+    <div class="employer">
+      {{ job.employer }}
+    </div>
+    <div class="role">
+      {{ job.role }}
+    </div>
+    <div class="date">
+      {{ job.date }}
+    </div>
+    <div class="description">
+      {{ job.description }}
+    </div>
+
+    <div class="responsibilities">
+      <span class="key" *ngFor="let key of job.keyResponsibilities">
+        {{ key }}</span
+      >
+    </div>
+
+    <div class="projects">
+      <div class="projects-title">Projects</div>
+      <span class="project" *ngFor="let project of job.projects">
+        {{ project }}
+      </span>
+    </div>
+  </div>
+</div>

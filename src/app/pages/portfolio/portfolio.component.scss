@@ -1,0 +1,27 @@
+@import '../../../_global.scss';
+
+.miniskills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  align-items: center;
+  padding: 0px;
+  grid-column-gap: 5px;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: center;
+}
+
+.folio {
+  border-left: 5px solid $warn;
+  font-size: 1.3rem;
+  font-weight: 500;
+  background: #0a1650;
+  box-shadow: 0.8rem 0.8rem 1rem 0rem rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+  border-radius: 0.6rem;
+  color: white;
+  padding: 0.5rem 0.7rem;
+}

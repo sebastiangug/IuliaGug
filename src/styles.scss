@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:300,400,500');
 @import '~@angular/material/theming';
+@import './global';
 // MEDIA QUERIES FOR MOBILE/DESKTOP NAV CONTAINERS
 // TRUE ON MOBILE
 @media only screen and (max-width: 959px) {
@@ -69,6 +70,41 @@ snack-bar-container {
     font-size: 1rem;
     font-weight: 500;
     text-shadow: 1px 1px 1px 1px slategray;
+  }
+}
+
+mat-dialog-container {
+  padding: 0 !important;
+  margin: 1rem !important;
+}
+
+.page-title {
+  border-bottom: 5px solid $accent;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .title {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: $secondary;
+    border-left: 4px solid $accent;
+    padding-left: 0.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+  }
+
+  .description {
+    max-width: 800px;
+    margin: 1rem 0;
   }
 }
 
