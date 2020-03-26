@@ -26,6 +26,7 @@ export class ResumeComponent {
         It provides asbestos surveying services mostly for residential \
         properties owned by housing associations.',
       keyResponsibilities: [
+        '• Developing Software',
         '• Managing technical talent in-house as well as remote contractors.',
         '• Continuously improving and simplifying our tech stack.',
         '• Developing software solutions to simplify existing processes.',
