@@ -11,3 +11,14 @@
   font-size: 1rem;
   max-width: 600px;
 }
+
+.link {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}

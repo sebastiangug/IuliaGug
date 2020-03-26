@@ -49,6 +49,8 @@ export class SkillsComponent {
   ];
 
   public readonly pausedSkills: IMiniSkill[] = [
+    { image: 'nativescript.png', name: 'NativeScript' },
+    { image: 'kotlin.png', name: 'Kotlin' },
     { image: 'php.png', name: 'php' },
     { image: 'aws-lambda.png', name: 'lambda' },
     { image: 'aws.png', name: 'AWS' },

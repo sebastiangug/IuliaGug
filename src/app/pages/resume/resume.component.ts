@@ -17,7 +17,7 @@ interface IJob {
 export class ResumeComponent {
   public readonly jobs: IJob[] = [
     {
-      employer: 'Thames Laboratories',
+      employer: 'Thames Laboratories (1+ year)',
       date: 'March 2019 - Present',
       role: 'Lead Software Engineer',
       description:
@@ -42,8 +42,8 @@ export class ResumeComponent {
       ],
     },
     {
-      employer: 'Ishango - Startup Venture',
-      date: 'November 2018 - March 2019',
+      employer: 'Ishango - Startup Venture (~3 months)',
+      date: 'December 2018 - March 2019',
       role: 'Partner',
       description:
         'Joined three senior contractors in a venture to \
@@ -60,7 +60,7 @@ export class ResumeComponent {
       ],
     },
     {
-      employer: 'Costain - A14 Highway Construction',
+      employer: 'Costain - A14 Highway Construction (2 years)',
       date: 'February 2017 - January 2019',
       role: 'Full Stack Developer',
       description:
@@ -92,7 +92,7 @@ export class ResumeComponent {
       ],
     },
     {
-      employer: 'Essentiads - Freelance',
+      employer: 'Essentiads - Freelance (~2.5 years)',
       date: 'July 2014 - January 2017',
       role: 'Web Developer & Digital Media Designer',
       description:
@@ -118,7 +118,7 @@ export class ResumeComponent {
       ],
     },
     {
-      employer: 'T Film',
+      employer: 'T Film (2 years)',
       date: 'July 2012 - July 2014',
       role: 'A/V Partner',
       description:
@@ -133,7 +133,7 @@ export class ResumeComponent {
     },
 
     {
-      employer: 'V Solutions',
+      employer: 'V Solutions (~1 year)',
       date: '2012 - 2013',
       role: 'Founder',
       description:
