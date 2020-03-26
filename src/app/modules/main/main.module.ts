@@ -22,6 +22,7 @@ import { AdminGuard } from '../../guards/admin.guard';
 import { MiniSkillComponent } from '../../components/mini-skill/mini-skill.component';
 import { FullImageComponent } from '../../components/full-image/full-image.component';
 import { ImageComponent } from '../../components/image/image.component';
+import { BlurDirective } from '../../directives/blur.directive';
 
 const routes: Route[] = [
   {
@@ -79,6 +80,7 @@ const routes: Route[] = [
     ResumeComponent,
     FullImageComponent,
     ImageComponent,
+    BlurDirective,
   ],
   imports: [
     RouterModule.forChild(routes),

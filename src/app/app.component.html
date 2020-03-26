@@ -1,5 +1,9 @@
-<navigation *ngIf="encryptionService.codeProvided | async"></navigation>
-<main>
+<navigation
+  (changed)="blurChanged($event)"
+  *ngIf="encryptionService.codeProvided | async"
+></navigation>
+
+<main [ngClass]="{ blur: hover }">
   <router-outlet></router-outlet>
 </main>
 

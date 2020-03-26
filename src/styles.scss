@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:300,400,500');
 @import '~@angular/material/theming';
 @import './global';
+
 // MEDIA QUERIES FOR MOBILE/DESKTOP NAV CONTAINERS
 // TRUE ON MOBILE
 @media only screen and (max-width: 959px) {
@@ -32,6 +33,14 @@
 
   .mobile-navigation-bar-container {
     display: none;
+  }
+}
+
+main {
+  transition: 400ms ease all;
+  &.blur {
+    transition: 400ms ease all;
+    filter: blur(4px);
   }
 }
 

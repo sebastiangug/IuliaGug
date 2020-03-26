@@ -1,9 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  ChangeDetectorRef,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'icon',
@@ -17,8 +12,6 @@ export class IconComponent {
   @Input() color: string;
 
   get absUrl() {
-    console.log(window.location.href);
-
     return window.location.href.split('#')[0];
   }
 }

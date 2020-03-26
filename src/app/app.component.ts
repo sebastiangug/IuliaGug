@@ -8,5 +8,10 @@ import { EncryptionService } from './services/encryption.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  public hover = false;
   constructor(public encryptionService: EncryptionService) {}
+
+  public blurChanged(hover: boolean) {
+    this.hover = hover;
+  }
 }
