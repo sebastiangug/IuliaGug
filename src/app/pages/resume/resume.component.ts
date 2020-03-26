@@ -49,6 +49,7 @@ export class ResumeComponent {
         'Joined three senior contractors in a venture to \
       develop SaaS aimed at contacts within the construction industry.',
       keyResponsibilities: [
+        '• Developing Software',
         '• Managing cloud infrastructure.',
         '• Researching SaaS products and architecture.',
         '• Architect & build multi-tenant SaaS',
@@ -71,8 +72,8 @@ export class ResumeComponent {
         that would improve their existing processes. I would then ensure delivery \
         and maintenance of said systems single-handedly in most cases.',
       keyResponsibilities: [
-        '• Managing technical talent in-house as well as remote contractors.',
-        '• Continuously improving and simplifying our tech stack.',
+        '• Developing Software',
+        '• Coordinating with remote contractors.',
         '• Developing software solutions to simplify existing processes.',
         '• Setting up and managing cloud infrastructure.',
         '• Conveying low level software details in high level fashion to management.',
