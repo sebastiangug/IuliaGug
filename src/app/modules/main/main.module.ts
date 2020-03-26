@@ -16,7 +16,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterModule, Route } from '@angular/router';
 import { ResumeComponent } from '../../pages/resume/resume.component';
-import { HomeComponent } from '../../pages/home/home.component';
 import { AuthService } from '../../services/auth.service';
 import { AdminGuard } from '../../guards/admin.guard';
 import { MiniSkillComponent } from '../../components/mini-skill/mini-skill.component';
@@ -68,7 +67,6 @@ const routes: Route[] = [
     PortfolioComponent,
     MiniSkillComponent,
     SkillsComponent,
-    HomeComponent,
     ContactComponent,
     AboutComponent,
     SkillComponent,
