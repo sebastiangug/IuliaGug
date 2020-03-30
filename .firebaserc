@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "sebastiangug-com"
+    "default": "iuliagug-323f3"
+  },
+  "targets": {
+    "iuliagug-323f3": {
+      "hosting": {
+        "iuliagug": [
+          "iuliagug-323f3"
+        ]
+      }
+    }
   }
 }
